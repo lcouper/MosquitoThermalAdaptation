@@ -16,3 +16,7 @@ Manuscript: NA
 
  ## relevant notes: 
 "Larval resources and larval density de- termine size at metamorphosis which, in turn, determines number of eggs per batch, female longevity and expected female lifetime fecundity; hence, population growth rate increases with pre-adult nutrition and decreases with density (Hawley 1985a, b; Fisher et al. 1990; Hard and Bradshaw 1993)." from : https://link.springer.com/content/pdf/10.1007/PL00008891.pdf
+
+
+ " (ii) adult longevity is positively correlated with adult size." from Hawley 1985: https://bradshaw-holzapfel-lab.uoregon.edu/PDF/WAH85jae.pdf
+ 

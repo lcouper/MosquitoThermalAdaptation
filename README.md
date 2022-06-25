@@ -10,3 +10,9 @@ Manuscript: NA
 - hatching trials
 - rearing / collecting eggs
 - 
+
+
+Important note about wing length/ body size: 
+ Egg number (but not longevity) was correlated with adult size for laboratory-maintained females collected from emergence trap(Washburn et al. 1999)
+ https://academic.oup.com/jme/article-abstract/26/3/173/2220670
+ 

@@ -20,4 +20,5 @@ Briere: cT(T–T0)sqrt(Tm−T)
 Quadratic: -c(T–T0)(T–Tm))  
 where c = positive rate constant, T0 = Tmin, Tm = Tmax
 
+Using R2jags package (R interface for JAGS package, which does MCMC sampling)
 

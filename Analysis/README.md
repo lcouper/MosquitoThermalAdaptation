@@ -13,5 +13,5 @@ Probability egg to adult survival: Quadratic
 Development rate (1/days): Briere
 Adult lifespan: Quadratic
 
-Briere: cT(T–T0)(Tm−T)1/2)
+Briere: cT(T–T0)(Tm−T)1/2)  
 Quadratic: -c(T–T0)(T–Tm))

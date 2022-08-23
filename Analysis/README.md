@@ -22,3 +22,6 @@ where c = positive rate constant, T0 = Tmin, Tm = Tmax
 
 Using R2jags package (R interface for JAGS package, which does MCMC sampling)
 
+- set thermal responses to 0 when Tmax < T or < Tmin
+- Run 3-5 MCMC chains for 25K iterations each, burn-in (discard) first 5000 iterations 
+- Thin posterior samples by saving every 5th (or 8th) sample

@@ -23,8 +23,8 @@ where c = positive rate constant, T0 = Tmin, Tm = Tmax
 
 ## Currently working on ##
 
-Fitting TPCs for larval dev rate for each population 
-Script: 
+Fitting TPCs for larval dev rate for each population   
+Script: TempTraitExp > Analysis_TraitFits > TraitFits_LDR.R
 
 ## References ##
 

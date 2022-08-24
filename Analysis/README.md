@@ -7,6 +7,11 @@ References:
 
 ## Overview ##
 
+Following pipeline from Shocket et al. 2020: https://github.com/mshocket/Six-Viruses-Temp
+using R2jags package
+
+Using uniform priors. Then using leave-one-out approach (using all other populations)
+
 Fit either symmetric, quadratic or asymmetric, Brière functions to the temperature-trait data.
 Visually inspect data for that trait to determine which to use. Previously:
 
@@ -20,8 +25,7 @@ Briere: cT(T–T0)sqrt(Tm−T)
 Quadratic: -c(T–T0)(T–Tm))  
 where c = positive rate constant, T0 = Tmin, Tm = Tmax
 
-Using R2jags package (R interface for JAGS package, which does MCMC sampling)
+## Currently working on ##
 
-- set thermal responses to 0 when Tmax < T or < Tmin
-- Run 3-5 MCMC chains for 25K iterations each, burn-in (discard) first 5000 iterations 
-- Thin posterior samples by saving every 5th (or 8th) sample
+Fitting TPCs for larval dev rate for each population 
+

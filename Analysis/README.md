@@ -1,10 +1,6 @@
 
 # Fitting thermal performance curves #
 
-References: 
-- https://elifesciences.org/articles/58511
-- https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0005568#pntd.0005568.ref052
-
 ## Overview ##
 
 Following pipeline from Shocket et al. 2020: https://github.com/mshocket/Six-Viruses-Temp
@@ -28,4 +24,9 @@ where c = positive rate constant, T0 = Tmin, Tm = Tmax
 ## Currently working on ##
 
 Fitting TPCs for larval dev rate for each population 
+
+### References:###
+- https://elifesciences.org/articles/58511
+- https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0005568#pntd.0005568.ref052
+
 

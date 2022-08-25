@@ -6,19 +6,11 @@
 - Following pipeline from Shocket et al. 2020: https://github.com/mshocket/Six-Viruses-Temp
 using R2jags package
 - Using uniform priors. Then using leave-one-out approach (using all other populations)
-- Fit either symmetric, quadratic or asymmetric, Brière functions to the temperature-trait data.
-(Visually inspect data for that trait to determine which to use.)
-Previously:
-
-Biting rate (inverse of gonotrophic cycle length (i.e., time between bloodfeed and egg-laying): Briere
-Eggs per gonotrophic cycle: Briere
-Probability egg to adult survival: Quadratic
-Development rate (1/days): Briere
-Adult lifespan: Quadratic
-
-Briere: cT(T–T0)sqrt(Tm−T)
-Quadratic: -c(T–T0)(T–Tm))  
-where c = positive rate constant, T0 = Tmin, Tm = Tmax
+- Fit either symmetric, quadratic or asymmetric, Brière functions to the temperature-trait data. Visually inspect data for that trait to determine which to use, but previously:
+-   Briere: Biting rate (inverse of gonotrophic cycle length (i.e., time between bloodfeed and egg-laying), eggs per gonotrophic cycle, development rate
+-   Quadratic: Probability egg to adult survival, adult lifespan
+- Equations (c = positive rate constant, T0 = Tmin, Tm = Tmax):
+-     Briere: cT(T–T0)sqrt(Tm−T)        Quadratic: -c(T–T0)(T–Tm))  
 
 ## Currently working on ##
 

@@ -20,6 +20,9 @@ Fitting TPCs for pupal dev rate for each population
 In LifeHistoryTraitExp > Analysis_TraitFits
 - TraitFits_LDR.R
 - TraitFits_PDR.R
+- TraitFits_pLS.R 
+- TraitFits_pPS.R
+- TraitFits_AL.R (not working.. need to figure out proper functional form (Briere, linear, quadratic)
 - LifeHistoryTraitExp_DataPreProcessing.R
 - LifeHistoryExp_TempData_PreProcessing.csv
 - LifeHistoryExp_TempData.csv

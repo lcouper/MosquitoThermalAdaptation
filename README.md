@@ -12,10 +12,14 @@ Manuscript: NA
 - field collection and rearing for one generation
 - thermal performance experiments 
 - analysis to obtain TPC parameters for each trait and population
-- Do SDM (using mosquito density equation?) using each population, and an average to see how different estimates of future mosquito ranges may be?
 - Wing length measurements (do Males as well so this can be a factor in genomic modeling)
-- DNA extraction, library prep, and sequencing
-- Genome analysis to identify genes associated with thermal tolerance?
+- DNA extraction, library prep, sequencing, and genomic analysis 
+
+
+Projects:
+- Model mosquito distributions using each population, and an average to see how different estimates of future mosquito ranges may be based on intra-specific variation
+- Evaluate evidence for thermal adaptation: how much do Tmaxs/Tmins/Topts vary and are they correalted with source temperature?) Input data into evolutionary rescue models?
+- Identify genes associated with thermal tolerance. Evaluate extent of genetic variation in thermal tolerance
 
 ## Currently working on ##
 - finishing thermal performance experiments (4C treatment ongoing)

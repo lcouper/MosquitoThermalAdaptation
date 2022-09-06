@@ -25,6 +25,11 @@ Projects:
 ## Currently working on ##
 - finishing thermal performance experiments (4C treatment ongoing)
 - fitting TPCs to prelim data using Bayesian methods
+- testing DNA extraction
+
+## Next to do ##
+- pull other temperature data for sites (e.g., max temp in Spring, max temp in wettest quarter)
+- fit TPC for fecundity
 
 ## Upcoming ##
 - DNA extraction & wing length measurements

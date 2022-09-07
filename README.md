@@ -33,6 +33,7 @@ Projects:
 
 ### Approximate sample numbers to extract (9/7/22) ###
 Refers to adults with complete data (i.e., will be sequenced)
+725 in total
 
 | Population | HOP | MAR1 | MAR2 | EUG | WAW | JRA | SB | PAR | POW | PLA | 
 | :-----: | :---: | :---: |:---: | :---: |:---: | :---: |:---: | :---: |:---: | :---: |

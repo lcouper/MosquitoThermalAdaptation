@@ -1,5 +1,5 @@
 # LifeHistoryTraitExp
-Protocols, datasheets, and code for the Aedes sierrensis life history trait experiment 
+Protocols, datasheets, and code for the *Aedes sierrensis* life history trait experiment 
 
 ## Links ##
 Results slides: https://docs.google.com/presentation/d/1t0al5WpG7hgLubEsBmxENzvtfGpIB8K2Z7HGYpsTtd0/edit#slide=id.p   
@@ -15,7 +15,6 @@ Background notes: https://docs.google.com/document/d/1AiJJt0yAJZJsXEDOziYk3WfPh4
 - analysis to obtain TPC parameters for each trait and population
 - Wing length measurements (do Males as well so this can be a factor in genomic modeling)
 - DNA extraction, library prep, sequencing, and genomic analysis 
-
 
 Projects:
 - Model mosquito distributions using each population, and an average to see how different estimates of future mosquito ranges may be based on intra-specific variation

@@ -6,7 +6,7 @@ Results slides: https://docs.google.com/presentation/d/1t0al5WpG7hgLubEsBmxENzvt
 Protocol: https://docs.google.com/document/d/1JiNfjMi0kGEQll5tvh_p-9JJzIDcXQVBXVMYJyD2KF0/edit   
 Datasheet: https://docs.google.com/spreadsheets/d/1QkzMyjTgjDneBDhOxtF73BUxhbU1lAbMszAgkt94gnA/edit#gid=0   
 Thermal performance of reproduction description: https://docs.google.com/document/d/1Wj1rxmaz0Td48ReQVKilQrMez4eTqDxXWePRPqNenUI/edit   
-Manuscript: NA   
+Background notes: https://docs.google.com/document/d/1AiJJt0yAJZJsXEDOziYk3WfPh45Odg9c9qZhwX3piQM/edit  
 
 ## Overview of project ##
 
@@ -25,17 +25,19 @@ Projects:
 ## Currently working on ##
 - finishing thermal performance experiments (4C treatment ongoing)
 - fitting TPCs to prelim data using Bayesian methods
-- testing DNA extraction
-
-## Next to do ##
-- pull other temperature data for sites (e.g., max temp in Spring, max temp in wettest quarter)
-- fit TPC for fecundity
+- DNA extraction
 
 ## Upcoming ##
+- pull other temperature data for sites (e.g., max temp in Spring, max temp in wettest quarter)
+- fit TPC for fecundity
 - DNA extraction & wing length measurements
 
- ## Some notes for later ##
-"Larval resources and larval density de- termine size at metamorphosis which, in turn, determines number of eggs per batch, female longevity and expected female lifetime fecundity; hence, population growth rate increases with pre-adult nutrition and decreases with density (Hawley 1985a, b; Fisher et al. 1990; Hard and Bradshaw 1993)." from : https://link.springer.com/content/pdf/10.1007/PL00008891.pdf
+### Approximate sample numbers to extract (9/7/22) ###
+Refers to adults with complete data (i.e., will be sequenced)
 
- " (ii) adult longevity is positively correlated with adult size." from Hawley 1985: https://bradshaw-holzapfel-lab.uoregon.edu/PDF/WAH85jae.pdf
+| Population | HOP | MAR1 | MAR2 | EUG | WAW | JRA | SB | PAR | POW | PLA | 
+| :-----: | :---: | :---: |:---: | :---: |:---: | :---: |:---: | :---: |:---: | :---: |
+| Approx. # | 66 | 67 | 60 | 47 | 289 | 91 | 73 | 78 | 83 | 76 | 84 |
+
+
  

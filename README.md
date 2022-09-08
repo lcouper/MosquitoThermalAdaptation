@@ -20,7 +20,7 @@ Manuscript: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0b
 - DNA extraction, library prep, sequencing, and genomic analysis 
 
 Projects:
-1. Evaluate evidence for thermal adaptation: how much do Tmaxs/Tmins/Topts vary and are they correalted with source temperature?) (as in Ruybal et al. 2016). Input data into evolutionary rescue models?
+1. Evaluate evidence for thermal adaptation: how much do Tmaxs/Tmins/Topts vary and are they correalted with source temperature?) (as in Ruybal et al. 2016). Input data into evolutionary rescue models?   
 1b or 2. 
 Modeling future climate responses using species vs population-level life history trait responses – i.e. how different are our predictions?
 3. Identify genetic clusters of Ae. sierrensis and predict future climate responses (as in Moi's 2019 paper)

@@ -10,23 +10,21 @@ Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGA
 Manuscript: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit  
 
 
-## Overview of project ##
+## Projects ##
 
-- field collection and rearing for one generation
-- thermal performance experiments 
-- analysis to obtain TPC parameters for each trait and population
-- Wing length measurements (do Males as well so this can be a factor in genomic modeling)
-- DNA extraction, library prep, sequencing, and genomic analysis 
+#### 1. Investigating current patterns of thermal adaptation 
+1. What life history traits are most limiting to fitness?
+2. How does Topt of fitness correspond to source environment? 
+3. What aspects of temperature are strongest drivers of adaptation? (ibutton data)
 
-Projects:
-1. Evaluate evidence for thermal adaptation: how much do Tmaxs/Tmins/Topts vary and are they correalted with source temperature?) (as in Ruybal et al. 2016). Input data into evolutionary rescue models?   
-1b or 2. 
-Modeling future climate responses using species vs population-level life history trait responses – i.e. how different are our predictions?
-3. Identify genetic clusters of Ae. sierrensis and predict future climate responses (as in Moi's 2019 paper)
+#### 2. Intra-specific variation in modeling climate responses 
+1. How do projections of mosquito climate responses vary when using species-wide vs population-level life history trait responses?
+2. How do they vary when using iButton vs weather station data vs remotely sensed data?
 
-alternative grouping:
-1. Life history trait experiment & genetic clustering & future responses (see Moi paper)
-2. Modling of future climate-based distributions using species vs pop-level life history trait responses
+#### 3. Genetic varaiation and potential for thermal adaptaiton ####
+1. How much within- and between- genetic variation exists between populations?
+2. Can we identify alleles/genes associated with thermal tolerance? 
+
 
 ## Currently working on ##
 - finishing thermal performance experiments (4C treatment ongoing)

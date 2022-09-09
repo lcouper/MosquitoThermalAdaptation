@@ -32,10 +32,12 @@ Manuscript: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0b
 - DNA extraction
 
 ## Upcoming ##
+- double check data entered correctly & list all individuals still alive / resolve issues in datasheet
 - calculate fitness for each population & temperature treatment (i.e., probability of surviving to day [x] adult stage x fecundity (proxy based on wing length))
 - pull other temperature data for sites (e.g., max temp in Spring, max temp in wettest quarter)
-- fit TPC for fecundity
-- DNA extraction & wing length measurements
+- fit TPC for fecundity & adult life span
+- wing length measurements (do all of these first)
+- DNA extractions
 
 ### Approximate sample numbers to extract (9/7/22) ###
 Refers to adults with complete data (i.e., will be sequenced)

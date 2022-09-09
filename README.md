@@ -3,9 +3,8 @@ Protocols, datasheets, and code for the *Aedes sierrensis* life history trait ex
 
 ## Links ##
 Results slides: https://docs.google.com/presentation/d/1t0al5WpG7hgLubEsBmxENzvtfGpIB8K2Z7HGYpsTtd0/edit#slide=id.p   
-Protocol: https://docs.google.com/document/d/1JiNfjMi0kGEQll5tvh_p-9JJzIDcXQVBXVMYJyD2KF0/edit   
+Protocols & Descriptions: https://drive.google.com/drive/u/1/folders/1Mo3wjYjz4vL88z8FdgrOB-oj7w-4425v    
 Datasheet: https://docs.google.com/spreadsheets/d/1QkzMyjTgjDneBDhOxtF73BUxhbU1lAbMszAgkt94gnA/edit#gid=0   
-Thermal performance of reproduction description: https://docs.google.com/document/d/1Wj1rxmaz0Td48ReQVKilQrMez4eTqDxXWePRPqNenUI/edit   
 Background notes: https://docs.google.com/document/d/1AiJJt0yAJZJsXEDOziYk3WfPh45Odg9c9qZhwX3piQM/edit  
 Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGAijmumqk0B  
 Manuscript: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit  

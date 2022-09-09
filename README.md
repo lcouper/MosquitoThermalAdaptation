@@ -25,6 +25,10 @@ Projects:
 Modeling future climate responses using species vs population-level life history trait responses – i.e. how different are our predictions?
 3. Identify genetic clusters of Ae. sierrensis and predict future climate responses (as in Moi's 2019 paper)
 
+alternative grouping:
+1. Life history trait experiment & genetic clustering & future responses (see Moi paper)
+2. Modling of future climate-based distributions using species vs pop-level life history trait responses
+
 ## Currently working on ##
 - finishing thermal performance experiments (4C treatment ongoing)
 - fitting TPCs to prelim data using Bayesian methods

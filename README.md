@@ -34,6 +34,7 @@ alternative grouping:
 - DNA extraction
 
 ## Upcoming ##
+- calculate fitness for each population & temperature treatment (i.e., probability of surviving to day [x] adult stage x fecundity (proxy based on wing length))
 - pull other temperature data for sites (e.g., max temp in Spring, max temp in wettest quarter)
 - fit TPC for fecundity
 - DNA extraction & wing length measurements

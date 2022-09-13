@@ -11,6 +11,7 @@ Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGA
 ## Projects ##
 
 #### 1. Investigating current patterns of thermal adaptation 
+Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVki4uI07BEJNdA/edit  
 1. What life history traits are most limiting to fitness?
 2. How does Topt of fitness correspond to source environment? 
 3. What aspects of temperature are strongest drivers of adaptation? (ibutton data)

@@ -7,8 +7,6 @@ Protocols & Descriptions: https://drive.google.com/drive/u/1/folders/1Mo3wjYjz4v
 Datasheet: https://docs.google.com/spreadsheets/d/1QkzMyjTgjDneBDhOxtF73BUxhbU1lAbMszAgkt94gnA/edit#gid=0   
 Background notes: https://docs.google.com/document/d/1AiJJt0yAJZJsXEDOziYk3WfPh45Odg9c9qZhwX3piQM/edit  
 Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGAijmumqk0B  
-Manuscript: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit  
-
 
 ## Projects ##
 
@@ -18,6 +16,7 @@ Manuscript: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0b
 3. What aspects of temperature are strongest drivers of adaptation? (ibutton data)
 
 #### 2. Intra-specific variation in modeling climate responses 
+Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit   
 1. How do projections of mosquito climate responses vary when using species-wide vs population-level life history trait responses?
 2. How do they vary when using iButton vs weather station data vs remotely sensed data?
 

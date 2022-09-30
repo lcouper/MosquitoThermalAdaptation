@@ -24,8 +24,8 @@ In LifeHistoryTraitExp > Analysis_TraitFits
 - TraitFits_pPS.R
 - TraitFits_AL.R (not working.. need to figure out proper functional form (Briere, linear, quadratic)
 - LifeHistoryTraitExp_DataPreProcessing.R
-- LifeHistoryExp_TempData_PreProcessing.csv
-- LifeHistoryExp_TempData.csv
+- LifeHistoryTraitExp_TempData_PreProcessing.csv
+- LifeHistoryTraitExp_TempData.csv
 
 ## References ##
 

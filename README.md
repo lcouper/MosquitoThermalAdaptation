@@ -23,7 +23,7 @@ Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0
 
 #### 3. Genetic varaiation and potential for thermal adaptaiton ####
 Working doc: https://docs.google.com/document/d/1E3hGLk8f2fVaF-348dDgzJ6As3sVeZl5RvhXSWXEKEI/edit
-1. How much within- and between- genetic variation exists between populations?
+1. How much within- and between- genetic variation exists between populations? 
 2. How much of the variaiton in fitness can be explained by genetics vs the environment?
 
 

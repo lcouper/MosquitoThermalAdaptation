@@ -34,7 +34,6 @@ Working doc: https://docs.google.com/document/d/1E3hGLk8f2fVaF-348dDgzJ6As3sVeZl
 
 ## Upcoming ##
 - double check data entered correctly & list all individuals still alive / resolve issues in datasheet
-- go back and check 'dontsequence' ones -- can probably sequence those with length full lifespan & wing length data
 - calculate traits: length full life span, population-level survival, % diapause, biting rate (1/oviposiiton length) (from repro data), EFD (from repro)
 - calculate fitness for each population & temperature treatment (i.e., probability of surviving to day [x] adult stage x fecundity (proxy based on wing length))
 - pull other temperature data for sites (e.g., max temp in Spring, max temp in wettest quarter)

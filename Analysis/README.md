@@ -5,8 +5,18 @@
 
 - Following pipeline from Shocket et al. 2020: https://github.com/mshocket/Six-Viruses-Temp
 using R2jags package
-- Using uniform priors. Then using leave-one-out approach (using all other populations)
-- Fit either symmetric, quadratic or asymmetric, Brière functions to the temperature-trait data. Visually inspect data for that trait to determine which to use, but previously:
+
+- Overview of trait-fitting procedure:
+- 1) Generate data informed priors 
+-    For each population, use trait data from all other populations (‘leave-one-out’)
+-    Fit either quadratic or Briere curves (depending on trait) to the temperature-trait data using uninformative priors (i.e., uniform, but constrained to be over a realistic temperature range)
+-    Fit gamma distributions to the TPC parameters generated for each population with the leave-one-out approach
+
+- 2) Use these data-informed priors to fit TPCs for each population 
+- 3) Obtain estimates of CTmin, CTmax 
+
+
+Previously:
 -   Briere: Biting rate (inverse of gonotrophic cycle length (i.e., time between bloodfeed and egg-laying), eggs per gonotrophic cycle, development rate
 -   Quadratic: Probability egg to adult survival, adult lifespan
 - Equations (c = positive rate constant, T0 = Tmin, Tm = Tmax):
@@ -14,7 +24,7 @@ using R2jags package
 
 ## Currently working on ##
 
-Fitting TPCs for pupal dev rate for each population   
+Re-doing trait fitting 
 
 ## Scripts & Data files ##
 In LifeHistoryTraitExp > Analysis_TraitFits

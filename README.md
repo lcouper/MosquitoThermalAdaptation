@@ -12,9 +12,9 @@ Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGA
 
 #### 1. Investigating current patterns of thermal adaptation 
 Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVki4uI07BEJNdA/edit  
-1. What life history traits are most limiting to fitness?
-2. How does Topt of fitness correspond to source environment? 
-3. What aspects of temperature are strongest drivers of adaptation? (ibutton data)
+1. What life history traits are most limiting to fitness? (sensitivity analysis of fitness calculations to trait inputs? or just look at which traits have lowest TPC parameters)
+3. How does Topt of fitness correspond to source environment? 
+4. What aspects of temperature are strongest drivers of adaptation? (ibutton data)
 
 #### 2. Intra-specific variation in modeling climate responses 
 Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit   

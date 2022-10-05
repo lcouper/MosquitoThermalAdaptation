@@ -25,7 +25,7 @@ Previously:
 
 ## Currently working on ##
 
-Re-doing trait fitting 
+
 
 ## Scripts & Data files ##
 In LifeHistoryTraitExp > Analysis_TraitFits
@@ -33,10 +33,12 @@ In LifeHistoryTraitExp > Analysis_TraitFits
 * TraitFits_PDR.R
 * TraitFits_pLS.R 
 * TraitFits_pPS.R
-* TraitFits_AL.R (not working.. need to figure out proper functional form (Briere, linear, quadratic)
+* TraitFits_AL.R 
+* TraitFits_EFD.R
+* TraitFits_BR.R
 * LifeHistoryTraitExp_DataPreProcessing.R
-* LifeHistoryTraitExp_TempData_PreProcessing.csv
-* LifeHistoryTraitExp_TempData.csv
+* LifeHistoryTraitExp_Data.csv
+# ReproExp_Data.csv
 
 ## References ##
 

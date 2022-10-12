@@ -15,7 +15,7 @@ Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVk
 
 1. To what extent is there variation in mosquito thermal tolerance?   
 1a.  Is the variation primarily in thermal *limits* or trait performance?  (evidence: for composite fitness measure, calculate variance in peak performance and in thermal limits)  
-1b. Is the variation within-, between-population, or both?   (do above for both within (for dev rate, fecundity, and life span traits) and between-populations)
+1b. Is the variation within-, between-population, or both?   (do above for both within (for dev rate, fecundity, and life span traits) and between-populations)   
 1c.  Is the variation genetically-based? (evidence: results from sequencing on % genetic contribution to fitness)  
  
 2. With what aspects of temperature/climate is this variation associated? (evidence: correlations between thermal limits and bioclim variables)  

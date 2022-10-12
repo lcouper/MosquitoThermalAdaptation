@@ -10,7 +10,7 @@ Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGA
 
 ## Projects ##
 
-#### 1. Testing evidence for mosquito thermal adaptation
+#### 1. Investigating evidence for mosquito thermal adaptation
 Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVki4uI07BEJNdA/edit  
 
 1. To what extent is there variation in mosquito thermal tolerance?   

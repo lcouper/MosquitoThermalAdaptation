@@ -14,14 +14,15 @@ Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGA
 Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVki4uI07BEJNdA/edit  
 
 1. To what extent is there variation in mosquito thermal tolerance?   
-1a.  Is the variation primarily in thermal *limits* or trait performance?   
-1b.  Is the variation genetically-based?   
-1c. Is the variation within-, between-population, or both?    
-2. With what aspects of temperature/climate is this variation associated? (analysis = correlations between thermal limits and bioclim variables)  
+1a.  Is the variation primarily in thermal *limits* or trait performance?  (evidence: for composite fitness measure, calculate variance in peak performance and in thermal limits)  
+1b. Is the variation within-, between-population, or both?   (do above for both within (for dev rate, fecundity, and life span traits) and between-populations)
+1c.  Is the variation genetically-based? (evidence: results from sequencing on % genetic contribution to fitness)  
+ 
+2. With what aspects of temperature/climate is this variation associated? (evidence: correlations between thermal limits and bioclim variables)  
 3. Importance of each life history trait (struggling with the right question here)  
-3a. What life history traits vary the most? (analysis = which traits have greatest between-population variance? within-pouplation variance?)  
-3b. What life history traits are most limiting to fitness?   
-3c. What life history traits contribute most to local adaptation? (Sensitivity analysis of fitness calculations to trait inputs as in Mordecai et al 2017 (see supplementals)? or just look at which traits have lowest TPC parameters)
+3a. What life history traits vary the most? (evidence: for each trait, calcualte between-population variance?)
+3b. What life history traits are most limiting to fitness?  (evidence: sensitivity analysis of fitness calculations to trait inputs as in Mordecai et al 2017 (see supplementals)? or just look at which traits have lowest TPC parameters) 
+3c. What life history traits contribute most to local adaptation? (evidence: which show strongest correlation with climatic variable?)
            
 
 #### 2. Intra-specific variation in modeling climate responses 

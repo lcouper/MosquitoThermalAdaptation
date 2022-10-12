@@ -20,8 +20,8 @@ Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVk
  
 2. With what aspects of temperature/climate is this variation associated? (evidence: correlations between thermal limits and bioclim variables)  
 3. Importance of each life history trait (struggling with the right question here)  
-3a. What life history traits vary the most? (evidence: for each trait, calcualte between-population variance?)
-3b. What life history traits are most limiting to fitness?  (evidence: sensitivity analysis of fitness calculations to trait inputs as in Mordecai et al 2017 (see supplementals)? or just look at which traits have lowest TPC parameters) 
+3a. What life history traits vary the most? (evidence: for each trait, calcualte between-population variance?)  
+3b. What life history traits are most limiting to fitness?  (evidence: sensitivity analysis of fitness calculations to trait inputs as in Mordecai et al 2017 (see supplementals)? or just look at which traits have lowest TPC parameters)  
 3c. What life history traits contribute most to local adaptation? (evidence: which show strongest correlation with climatic variable?)
            
 

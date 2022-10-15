@@ -16,14 +16,17 @@ Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVk
 1. To what extent is there variation in mosquito thermal tolerance?   
 1a.  Is the variation primarily in thermal *limits* or trait performance?  (evidence: for composite fitness measure, calculate variance in peak performance and in thermal limits)  
 1b. Is the variation within-, between-population, or both?   (do above for both within (for dev rate, fecundity, and life span traits) and between-populations)   
-1c.  Is the variation genetically-based? (evidence: results from sequencing on % genetic contribution to fitness)  
+1c.  Is the variation genetically-based? (evidence: results from sequencing on % genetic contribution to fitness)   
+ 
  
 2. With what aspects of temperature/climate is this variation associated? (evidence: correlations between thermal limits and bioclim variables)  
 3. Importance of each life history trait (struggling with the right question here)  
 3a. What life history traits vary the most? (evidence: for each trait, calcualte between-population variance?)  
 3b. What life history traits are most limiting to fitness?  (evidence: sensitivity analysis of fitness calculations to trait inputs as in Mordecai et al 2017 (see supplementals)? or just look at which traits have lowest TPC parameters)  
 3c. What life history traits contribute most to local adaptation? (evidence: which show strongest correlation with climatic variable?)
-           
+3d. Potential add-on idea = measure correlational selection as in Gilbert 2017 (https://royalsocietypublishing.org/doi/full/10.1098/rspb.2017.0536#d3e1705)  
+Model fitness ~ trait1+ trait2 + trait3 + trait1*trait2   
+allows you to estimate correlations between traits
 
 #### 2. Intra-specific variation in modeling climate responses 
 Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit   
@@ -34,6 +37,8 @@ Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0
 Working doc: https://docs.google.com/document/d/1E3hGLk8f2fVaF-348dDgzJ6As3sVeZl5RvhXSWXEKEI/edit
 1. How much within- and between- genetic variation exists between populations? 
 2. How much of the variaiton in fitness can be explained by genetics vs the environment?
+
+
 
 
 ## Currently working on ##

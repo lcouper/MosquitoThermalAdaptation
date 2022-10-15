@@ -1,4 +1,4 @@
-Temperature,Population,Individual,Bloodfed.Date,Egg.Date,Eggs,Death.Date,Winglength,Oviposited,Notes,CycleLength,EFD
+Temperature,Population,Individual,Bloodfed.Date,Egg.Date,Eggs,Death.Date,Winglength,Oviposited,Notes,CycleLength,EFD 
 13.35,EUG,EUG104,8/11/22,NA,0,NA,NA,n,Adult still alive but no eggs laid by date of experiment termination (9/28),NA,NA
 13.35,HOP,HOP105,8/6/22,8/28/22,54,NA,NA,y,Sample not sufficiently intact for wing length measurement,22,2.454545455
 13.35,HOP,HOP109,8/6/22,9/10/22,54,9/10/22,3.065,y,,35,1.542857143

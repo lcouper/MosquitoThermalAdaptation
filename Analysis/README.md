@@ -36,6 +36,8 @@ In LifeHistoryTraitExp > Analysis_TraitFits
 * TraitFits_AL.R 
 * TraitFits_EFD.R
 * TraitFits_BR.R
+* TraitFits_pEA.R
+* TraitFits_M.R
 * LifeHistoryTraitExp_DataPreProcessing.R
 * LifeHistoryTraitExp_Data.csv
 * ReproExp_Data.csv

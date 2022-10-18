@@ -13,12 +13,11 @@ Wing Images: https://drive.google.com/drive/u/1/folders/1NtzC93sPJOMRPK9BPH_nkGA
 #### 1. Investigating evidence for mosquito thermal adaptation
 Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVki4uI07BEJNdA/edit  
 
-1. To what extent is there variation in mosquito thermal tolerance?   
-1a.  Is the variation primarily in thermal *limits* or trait performance?  (evidence: for composite fitness measure, calculate variance in peak performance and in thermal limits)  
+1. How much does mosquito thermal performance vary across the species range?
+1a.  How much variation primarily in thermal *limits* or trait performance?  (evidence: for composite fitness measure, calculate variance in peak performance and in thermal limits)  
 1b. Is the variation within-, between-population, or both?   (do above for both within (for dev rate, fecundity, and life span traits) and between-populations)   
  
- 
-2. With what aspects of temperature/climate is this variation associated? (evidence: correlations between thermal limits and bioclim variables)  
+2. How does variation in thermal performance correspond to local (source) climate conditions? With what temperature/climate variables is variation most strongly associated? (evidence: correlations between thermal limits and bioclim variables)  
 
 3. Importance of each life history trait (struggling with the right question here)  
 3a. What life history traits vary the most? (evidence: for each trait, calcualte between-population variance?)  

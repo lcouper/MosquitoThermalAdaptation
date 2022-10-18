@@ -31,6 +31,7 @@ allows you to estimate correlations between traits
 Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit   
 1. How do projections of mosquito climate responses vary when using species-wide vs population-level life history trait responses?  Evidence/analysis: Use this method of calculating individual pop growth rates (i.e., fitness) from life history trait data:
 https://www.jstor.org/stable/pdf/2463223.pdf?refreqid=excelsior%3A2fbfbe89b4459363529755cfd9ddc1a2&ab_segments=&origin=&acceptTC=1   
+See also mosquito density calculation from NSF ORCC Grant!  
 2. How do they vary when using iButton vs weather station data vs remotely sensed data?
 
 #### 3. Genetic varaiation and potential for thermal adaptaiton ####

@@ -22,14 +22,15 @@ Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVk
 3. Importance of each life history trait (struggling with the right question here)  
 3a. What life history traits vary the most? (evidence: for each trait, calcualte between-population variance?)  
 3b. What life history traits are most limiting to fitness?  (evidence: sensitivity analysis of fitness calculations to trait inputs as in Mordecai et al 2017 (see supplementals)? or just look at which traits have lowest TPC parameters)  
-3c. What life history traits contribute most to local adaptation? (evidence: which show strongest correlation with climatic variable?)
+3c. What life history traits contribute most to local adaptation? (evidence: which show strongest correlation with climatic variable?)  
 3d. What life history traits are corrlated with each other/ under selection -- measure correlational selection as in Gilbert 2017 (https://royalsocietypublishing.org/doi/full/10.1098/rspb.2017.0536#d3e1705)  
 Model fitness ~ trait1+ trait2 + trait3 + trait1*trait2   
 allows you to estimate correlations between traits
 
 #### 2. Intra-specific variation in modeling climate responses 
 Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit   
-1. How do projections of mosquito climate responses vary when using species-wide vs population-level life history trait responses?
+1. How do projections of mosquito climate responses vary when using species-wide vs population-level life history trait responses?  Evidence/analysis: Use this method of calculating individual pop growth rates (i.e., fitness) from life history trait data:
+https://www.jstor.org/stable/pdf/2463223.pdf?refreqid=excelsior%3A2fbfbe89b4459363529755cfd9ddc1a2&ab_segments=&origin=&acceptTC=1   
 2. How do they vary when using iButton vs weather station data vs remotely sensed data?
 
 #### 3. Genetic varaiation and potential for thermal adaptaiton ####

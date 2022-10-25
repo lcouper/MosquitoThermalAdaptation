@@ -17,7 +17,7 @@ Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVk
 1a.  How much variation primarily in thermal *limits* or trait performance?  (evidence: for composite fitness measure, calculate variance in peak performance and in thermal limits)  
 1b. Is the variation within-, between-population, or both?   (do above for both within (for dev rate, fecundity, and life span traits) and between-populations)   
  
-2. How does variation in thermal performance correspond to local (source) climate conditions? With what temperature/climate variables is variation most strongly associated? (evidence: correlations between thermal limits and bioclim variables)  
+2. How does variation in thermal performance correspond to local (source) climate conditions? With what temperature/climate variables is variation most strongly associated? (evidence: correlations between thermal limits and bioclim variables). Make sure to include extreme temps (i.e., daily maximums) as justified in Sunday et al. 2019
 
 3. Importance of each life history trait (struggling with the right question here)  
 3a. What life history traits vary the most? (evidence: for each trait, calcualte between-population variance?)  

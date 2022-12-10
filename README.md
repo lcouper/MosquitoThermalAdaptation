@@ -28,6 +28,9 @@ Working doc: https://docs.google.com/document/d/1xFx6vmBDdw5-maTafi-_qo3OfKLJdVk
 Model fitness ~ trait1+ trait2 + trait3 + trait1*trait2   
 allows you to estimate correlations between traits
 
+
+
+
 #### 2. Intra-specific variation in modeling climate responses 
 Working doc: https://docs.google.com/document/d/1kU_lWkhXjSKcnZGYVIlGcciu3q279f0bcKXwr3HfMgQ/edit   
 1. How do projections of mosquito climate responses vary when using species-wide vs population-level life history trait responses?  Evidence/analysis: Use this method of calculating individual pop growth rates (i.e., fitness) from life history trait data:
@@ -40,28 +43,6 @@ Working doc: https://docs.google.com/document/d/1E3hGLk8f2fVaF-348dDgzJ6As3sVeZl
 1. How much within- and between- genetic variation exists between populations? 
 2. How much of the variaiton in fitness can be explained by genetics vs the environment? (evidence: results from sequencing on % genetic contribution to fitness)   
 
-
-
-
-## Currently working on ##
-- finishing thermal performance experiments (4C treatment ongoing)
-- fitting TPCs to prelim data using Bayesian methods
-- DNA extraction
-
-## Upcoming ##
-- calculate fitness for each population & temperature treatment (i.e., probability of surviving to day [x] adult stage x fecundity (proxy based on wing length))
-- calculate between-population variation in upper thermal limits for traits 
-- pull other temperature data for sites (e.g., max temp in Spring, max temp in wettest quarter)
-- wing length measurements & DNA extractions
-- Estimate sequencing cost. Decide whether to sequence all individuals or just those with wing length measurements (i.e., those with available fecundity proxies)
-
-### Approximate sample numbers to extract (9/7/22) ###
-Refers to adults with complete data (i.e., will be sequenced)
-725 in total
-
-| Population | HOP | MAR1 | MAR2 | EUG | WAW | JRA | SB | PAR | POW | PLA | 
-| :-----: | :---: | :---: |:---: | :---: |:---: | :---: |:---: | :---: |:---: | :---: |
-| Approx. # | 66 | 67 | 60 | 47 | 289 | 91 | 73 | 78 | 83 | 76 | 84 |
 
 
  

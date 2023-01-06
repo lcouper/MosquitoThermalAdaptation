@@ -47,11 +47,4 @@ In LifeHistoryTraitExp > Analysis_TraitFits
 - https://elifesciences.org/articles/58511
 - https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0005568#pntd.0005568.ref052
 
-# Extracting BioClim Data #
-
-Downloaded WorldClim BioClim data (19 variables) from: https://www.worldclim.org/data/worldclim21.html (at 30s resolution)
-For each variable, this data provides an average value for the time period 1970-2000. Output is .tif file
-Then: 
-* imported each tiff as a raster layer into qGIS
-* Imported csv of lat/longs for each treehole used ('TreeholeSheetForMap2')
-* Extracted values for each lat long by: processing toolbox > raster analysis > sample raster values. Used treeholemap as input and tif as raster layer
+# Climate Data Analyzed Using Google Earth Engine #

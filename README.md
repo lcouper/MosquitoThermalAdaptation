@@ -1,4 +1,5 @@
-# LifeHistoryTraitExp
+# Mosquito Thermal Adaptation 
+
 Protocols, datasheets, and code for the *Aedes sierrensis* life history trait experiment 
 
 ## Links ##

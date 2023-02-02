@@ -644,38 +644,35 @@ ALdf_uni$Population = c(rep(c("HOP", "MAR1", "MAR2", "WAW", "EUG", "PLA", "SB", 
 save(ALdf_uni, file = "AL_meansd_uni.Rsave")
 
 ###### 5. Plotting ######
-###### 5a. Plot of CTmax, CTmin, Topt for each population ######
-
 load("AL_meansd_uni.Rsave")
 library(ggplot2)
+###### 5a. Plot of CTmax, CTmin, Topt for each population ######
+# order by latitude
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors = rep(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"), each = 3)
 
-# order from coldest to hottest temp in wettest quarter
-#OldPopOrder = c("EUG", "WAW","HOP", "PLA", "SB", "MAR2", "MAR1", "PAR", "JRA", "POW") 
-PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
-ALdf_uni$Population = factor(ALdf_uni$Population, levels = PopOrder)
+ALdf_uni$Population = factor(ALdf_uni$Population, levels = LatOrder)
 ALdf_uni = ALdf_uni[order(ALdf_uni$Population),]
 ALdf_uni = ALdf_uni[ALdf_uni$param != "Tbreadth",]
 ALdf_uni = ALdf_uni[ALdf_uni$param != "Pmax",]
 
-# colors for each population
-colors3 = rep(rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695")), each = 3)
-
-plotAL = ggplot(ALdf_uni, aes(x=Population, y=mean, col = colors3)) + 
-  scale_y_continuous(limits = c(0, 45)) +
-  geom_point(stat="identity", col=colors3, size = 2,
-             position=position_dodge(width = 0.5)) +
-  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = colors3,
-                position=position_dodge(), width = 0.3) + 
-  ggtitle("Adult Lifespan") + 
+plotALuni = ggplot(ALdf_uni, aes(x=Population, y=mean, col = LatColors)) + 
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_discrete(position = "top") +
+  geom_point(stat="identity", col=LatColors, 
+             position=position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors,
+                position=position_dodge(.9), width = 0.3) + 
+  ggtitle("Adult lifespan") + 
   theme_minimal() +  coord_flip()  + 
-  labs(x = "Population", y = "Temperature (C)") + 
-  theme(axis.text=element_text(size=15), 
+  labs(x = " ", y = "Temperature (\u00B0C)") + 
+  theme(axis.text=element_text(size=14), 
         axis.title = element_text(size = 16),
         legend.text=element_text(size=15),
         legend.title = element_text(size=16),
         plot.title = element_text(hjust = 0.5, size = 24),
-        legend.position= "none") 
-
+        legend.position= "none",
+        panel.border = element_rect(colour = "black", fill = NA))
 
 ###### 5b. Plot of Pmax for each population #####
 
@@ -1610,9 +1607,8 @@ save(ALdf_inf, file = "AL_meansd_inf.Rsave")
 library(ggplot2)
 load("AL_meansd_inf.Rsave")
 ###### 9a. Plot of CTmax, CTmin, Topt for each population #####
-
-LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
-LatColors = rep(rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fee090", "#e0f3f8", "#abd9e9", "#74add1", "#4575b4", "#313695")), each = 3)
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors = rep(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"), each = 3)
 
 ALdf_inf$Population = factor(ALdf_inf$Population, levels = LatOrder)
 ALdf_inf = ALdf_inf[order(ALdf_inf$Population),]
@@ -1622,14 +1618,14 @@ ALdf_inf = ALdf_inf[ALdf_inf$param != "Pmax",]
 plotALinf = ggplot(ALdf_inf, aes(x=Population, y=mean, col = LatColors)) + 
   scale_y_continuous(limits = c(0, 40)) +
   scale_x_discrete(position = "top") +
-  geom_point(stat="identity", col=LatColors, 
+  geom_point(stat="identity", col=LatColors, size = 2, 
              position=position_dodge(width = 1)) +
-  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors,
-                position=position_dodge(.9), width = 0.3) + 
+  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors, size = 0.7,
+                position=position_dodge(.9), width = 0.5) + 
   ggtitle("Adult lifespan") + 
   theme_minimal() +  coord_flip()  + 
   labs(x = " ", y = "Temperature (\u00B0C)") + 
-  theme(axis.text=element_text(size=12), 
+  theme(axis.text=element_text(size=14), 
         axis.title = element_text(size = 16),
         legend.text=element_text(size=15),
         legend.title = element_text(size=16),
@@ -1665,15 +1661,7 @@ plotALinf_Pmax = ggplot(ALdf_inf, aes(x=Population, y=mean, col = colors4)) +
         legend.position= "none") 
 
 ###### 9c. Plot adult lifespans curve for all populations #####
-
-plot.new()
-par(mfrow = c(1,1))
-par(mar = c(2.5, 2.5, 2.5, 2.5))
-
 load(file = "AL_meansd_inf.Rsave")
-colors3 = rep(rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695")), each = 3)
-#OldPopOrder = c("EUG", "WAW","HOP", "PLA", "SB", "MAR2", "MAR1", "PAR", "JRA", "POW") 
-PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
 
 EUGdata = AL.EUG.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 WAWdata = AL.WAW.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
@@ -1687,22 +1675,22 @@ JRAdata = AL.JRA.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 POWdata = AL.POW.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 
 # Plot data + fit
-plot(PupalDevRate ~ Temp.Treatment, 
-     xlim = c(5, 45), ylim = c(0,15), data = data.AL.HOP, type = "n", bty = "n",
-     ylab = "rate (1/day)", xlab = "Temperature (\u00B0C)", pch = 1,
-     main = "Adult lifespan", cex.main = 2, cex.lab = 1.4, cex.axis = 1.2)
+par(mar = (c(4.5, 4.5, 2.5, 1)))
+plot(AdultLifespan ~ Temp.Treatment, 
+     xlim = c(5, 40), ylim = c(0,15), data = data.AL.HOP, type = "n", bty = "n",
+     ylab = "lifespan (days)", xlab = "Temperature (\u00B0C)", pch = 1,
+     main = "Adult lifespan", cex.main = 1.7, cex.lab = 1.4, cex.axis = 1.2)
+box(col = "black")
 lines(EUGdata ~ Temp.xs, col = "#313695", lwd = 1.5)
-lines(WAWdata ~ Temp.xs, col = "#4575b4", lwd = 1.5)
+lines(HOPdata ~ Temp.xs, col = "#4575b4", lwd = 1.5)
 lines(PLAdata ~ Temp.xs, col = "#74add1", lwd = 1.5)
-lines(HOPdata ~ Temp.xs, col = "#abd9e9", lwd = 1.5)
-lines(JRAdata ~ Temp.xs, col = "#e0f3f8", lwd = 1.5)
-lines(MAR2data ~ Temp.xs, col = "#fee090", lwd = 1.5)
-lines(MAR1data ~ Temp.xs, col = "#fdae61", lwd = 1.5)
-lines(POWdata ~ Temp.xs, col = "#f46d43", lwd = 1.5)
-lines(PARdata ~ Temp.xs, col = "#d73027", lwd = 1.5)
-lines(SBdata ~ Temp.xs, col = "#a50026", lwd = 1.5)
-
-
+lines(MAR2data ~ Temp.xs, col = "#abd9e9", lwd = 1.5)
+lines(MAR1data ~ Temp.xs, col = "#7cae00", lwd = 1.5)
+lines(JRAdata ~ Temp.xs, col = "#fed439ff", lwd = 1.5)
+lines(WAWdata ~ Temp.xs, col = "#fdae61", lwd = 1.5)
+lines(PARdata ~ Temp.xs, col = "#f46d43", lwd = 1.5)
+lines(SBdata ~ Temp.xs, col = "#ec3c30", lwd = 1.5)
+lines(POWdata ~ Temp.xs, col = "#ab041b", lwd = 1.5)
 
 
 

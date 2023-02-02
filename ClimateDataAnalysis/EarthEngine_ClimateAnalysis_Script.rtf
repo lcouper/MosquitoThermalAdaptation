@@ -1,0 +1,160 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 // Script to characterize features of thermal environment near sampled tree holes\
+\
+var treeholes = ee.FeatureCollection("users/lisabelcouper/TreeholeLatLon");\
+//print(treeholes);\
+Map.addLayer(treeholes);\
+\
+// list out treehole IDs to perform calculations on\
+var lis = ee.List(["Hop.37", "Marin.29", "Marin.35", "JR.A", "POW.02", "SB.04", "PAR.07", "PLA.01", "EUG.03", "WAW.12"]);\
+var thlist = treeholes.filter(ee.Filter.inList("Treehole", lis));\
+//print(thlist);\
+\
+/*\
+// 1. Temperature means \
+// average of mean daily temp \
+var prism = ee.ImageCollection("OREGONSTATE/PRISM/AN81d"); \
+// Surely a better way to do this, but brute force approach to calculate\
+// average annual mean from 2000 - 2020 (update line below per year)\
+var prism2021 = prism.filterDate("2021-01-01", "2022-01-01").select(["tmean"]).mean();\
+\
+//Calculate mean of annual average over years\
+//var prism_comb = ee.ImageCollection([prism2000, prism2001, prism2002, prism2003,\
+//prism2004, prism2005, prism2006, prism2007, prism2008, prism2009, prism2010,\
+//prism2011, prism2012, prism2013, prism2014, prism2015, prism2016, prism2017,\
+//prism2018, prism2019, prism2020]).mean();\
+//print(prism_comb);\
+\
+// Calculate annual avg temp around each tree hole\
+var treeholes_avg = prism2021.reduceRegions(\{\
+  collection: thlist, \
+  reducer: ee.Reducer.mean(), \
+  scale: 1000,  // 1 km pixel size around treehole coordinate \
+\});\
+//print(treeholes_avg);\
+\
+//Export to gDrive\
+Export.table.toDrive(\{\
+  collection: treeholes_avg,\
+  description: "treehole_avg_temp_2021"\});\
+*/\
+\
+/*\
+// 2. Temperature seasonal variation\
+// mean temp of warmest month - mean temp of coldest month \
+var prismM = ee.ImageCollection("OREGONSTATE/PRISM/AN81m");\
+print(prismM);\
+var prismMmax = prismM.filterDate("2021-01-01", "2022-01-01").select(["tmean"]).max();\
+var prismMmin = prismM.filterDate("2021-01-01", "2022-01-01").select(["tmean"]).min();\
+\
+\
+// Calculate around each treehole\
+var treeholes_max = prismMmax.reduceRegions(\{\
+  collection: thlist, \
+  reducer: ee.Reducer.mean(), \
+  scale: 1000,  // 1 km pixel size around treehole coordinate \
+\});\
+var treeholes_min = prismMmin.reduceRegions(\{\
+  collection: thlist, \
+  reducer: ee.Reducer.mean(), \
+  scale: 1000,  // 1 km pixel size around treehole coordinate \
+\});\
+//print(treeholes_max);\
+//print(treeholes_min);\
+\
+Export.table.toDrive(\{\
+  collection: treeholes_max, \
+  description: "treehole_max_month_2021"\});\
+  \
+Export.table.toDrive(\{\
+  collection: treeholes_min, \
+  description: "treehole_min_month_2021"\});\
+*/ \
+\
+\
+// 3. Temerature extremes\
+// here defining as the mean maximum temp in Spring/Summer\
+/*\
+var prism = ee.ImageCollection("OREGONSTATE/PRISM/AN81d"); \
+\
+var prismExt = prism.filterDate("2021-03-19", "2021-09-23").select(["tmax"]).mean();\
+\
+// Calculate around each tree hole \
+var treeholes_ext = prismExt.reduceRegions(\{\
+  collection: thlist, \
+  reducer: ee.Reducer.mean(), \
+  scale: 1000,  // 1 km pixel size around treehole coordinate \
+\});\
+\
+print(treeholes_ext);\
+\
+Export.table.toDrive(\{\
+  collection: treeholes_ext, \
+  description: "treehole_ext_2021"\});\
+\
+\
+// 4. Temerature extremes variable 2\
+// here defining as the # of days with T > 34c (the highest CTmax from experiment)\
+\
+var prism = ee.ImageCollection("OREGONSTATE/PRISM/AN81d").select(["tmax"]); \
+\
+// Function to obtain the images where windspeed <= 25 for safe flight conditions\
+var daysMeetingConditionImage = function (image) \{\
+   return image.updateMask(\
+   image.select("tmax")\
+   .gte(34)\
+   .selfMask()// Updates new mask values\
+   );\
+\}\
+\
+// Setting begin date and end date as variables and filter from ImageCollection\
+var begin = ee.Date.fromYMD(2021,1,1);\
+var end = ee.Date.fromYMD(2022,1,1);\
+var select_prism = prism.filterDate(begin,end);\
+\
+// Apply function to filtered Image Collection  \
+var hot_days = select_prism.map(daysMeetingConditionImage);\
+var count = hot_days.reduce(ee.Reducer.count());\
+// ee.Reducer.count counts the # of images matching the critera stated above\
+var treeholes_ext2 = count.reduceRegions(\{\
+      reducer: ee.Reducer.mean(),\
+      collection: thlist,\
+      scale : 1000,\
+      \})\
+      \
+Export.table.toDrive(\{\
+  collection: treeholes_ext2, \
+  description: "treehole_ext2_2021"\});\
+      \
+\
+print(count.reduceRegions(\{\
+      reducer: ee.Reducer.mean(),\
+      collection: thlist,\
+      scale : 1000,\
+      \}))\
+*/\
+\
+\
+// 5. Mean temp of Jan-March (typically the wettest quarter for each location)\
+// but avoids inconsistency if comparing different months between locations and years\
+var prismM = ee.ImageCollection("OREGONSTATE/PRISM/AN81m");\
+var prismWetTemp = prismM.filterDate("2021-01-01", "2021-04-01").select(["tmean"]).mean();\
+\
+// Calculate around each treehole\
+var treeholes_wettemp = prismWetTemp.reduceRegions(\{\
+  collection: thlist, \
+  reducer: ee.Reducer.mean(), \
+  scale: 1000,  // 1 km pixel size around treehole coordinate \
+\});\
+\
+//print(treeholes_wettemp);\
+\
+Export.table.toDrive(\{\
+  collection: treeholes_wettemp, \
+  description: "treehole_wettemp_2021"\});}

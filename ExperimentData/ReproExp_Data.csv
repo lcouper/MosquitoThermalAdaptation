@@ -1,0 +1,131 @@
+"","Temperature","Population","Individual","Bloodfed.Date","Egg.Date","Eggs","Death.Date","Winglength","Oviposited","Notes","CycleLength","EFD"
+"1",27.5,"HOP","HOP101",2022-08-06,2022-08-22,17,2022-08-22,3.55,"y","",16,1.0625
+"2",17.12,"HOP","HOP102",2022-08-06,2022-09-17,95,NA,3.364,"y","",42,2.26190476190476
+"3",5.49,"HOP","HOP103",2022-08-06,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"4",23.75,"HOP","HOP104",2022-08-06,2022-08-17,32,NA,3.452,"y","Put adult in PCR tube in -80. Put eggs (which were laid on the cotton ball) at room temp on the counter where eggs from the reared populations usually live",11,2.90909090909091
+"5",13.35,"HOP","HOP105",2022-08-06,2022-08-28,54,NA,NA,"y","Sample not sufficiently intact for wing length measurement",22,2.45454545454545
+"6",17.12,"HOP","HOP106",2022-08-06,2022-08-25,4,NA,NA,"y","in PCR tube in -80",19,0.210526315789474
+"7",27.5,"HOP","HOP107",2022-08-06,2022-08-22,2,NA,NA,"y","",16,0.125
+"8",5.49,"HOP","HOP108",2022-08-06,NA,0,2022-09-12,NA,"n","",NA,NA
+"9",13.35,"HOP","HOP109",2022-08-06,2022-09-10,54,2022-09-10,3.065,"y","",35,1.54285714285714
+"10",23.75,"HOP","HOP110",2022-08-06,2022-08-18,123,NA,3.498,"y","Put adult in PCR tube in -80. Put the whole oviposition cup (since eggs were laid in multiple places) at room temp on the counter where eggs from the reaerd populations usually live",12,10.25
+"11",17.12,"HOP","HOP111",2022-08-07,2022-08-23,1,NA,NA,"y","Wings were too wet/smooshed together to measure",16,0.0625
+"12",27.5,"HOP","HOP112",2022-08-06,2022-08-14,21,NA,3.273,"y","Put whole deli cup, including eggs (laid on sugar cotton ball) and live adult in the -80",8,2.625
+"13",5.49,"HOP","HOP113",2022-08-06,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"14",13.35,"HOP","HOP114",2022-08-06,2022-09-12,24,NA,3.44,"y","",37,0.648648648648649
+"15",23.75,"HOP","HOP115",2022-08-06,NA,0,2022-08-30,NA,"n","",NA,NA
+"16",23.75,"MAR","MAR101",2022-08-06,2022-08-22,212,NA,3.442,"y","suspected earlier date",16,13.25
+"17",17.12,"MAR","MAR102",2022-08-06,2022-09-12,73,NA,3.451,"y","",37,1.97297297297297
+"18",5.49,"MAR","MAR103",2022-08-06,NA,0,2022-09-07,NA,"n","",NA,NA
+"19",27.5,"JRA","JRA101",2022-08-07,NA,0,NA,NA,NA,"This one looked died 8/13/22 but looked like it got squished in the pantyhose, so I would probably mark it as 'NA' with respect to lifespan since this was an unnatural cause. Sample was not put in -80 becuase it was too squished",NA,NA
+"20",5.49,"JRA","JRA102",2022-08-07,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"21",13.35,"JRA","JRA103",2022-08-07,NA,0,2022-09-16,NA,"n","",NA,NA
+"22",17.12,"JRA","JRA104",2022-08-07,NA,0,2022-08-18,NA,"n","In PCR tube in -80",NA,NA
+"23",23.75,"JRA","JRA105",2022-08-07,NA,0,2022-08-16,NA,"n","In PCR tube in -80",NA,NA
+"24",23.75,"JRA","JRA106",2022-08-07,2022-08-22,14,NA,2.89,"y","",15,0.933333333333333
+"25",13.35,"JRA","JRA107",2022-08-07,NA,0,2022-08-25,NA,"n","In PCR tube in -80",NA,NA
+"26",5.49,"JRA","JRA108",2022-08-07,NA,0,2022-08-25,NA,"n","In PCR tube in -80",NA,NA
+"27",17.12,"JRA","JRA109",2022-08-07,NA,0,2022-08-16,NA,"n","In PCR tube - 80",NA,NA
+"28",27.5,"MAR","MAR104",2022-08-07,2022-08-27,3,NA,3.42,"y","",20,0.15
+"29",13.35,"MAR","MAR105",2022-08-07,NA,0,2022-09-23,NA,"n","",NA,NA
+"30",23.75,"MAR","MAR106",2022-08-07,NA,0,2022-09-03,NA,"n","",NA,NA
+"31",17.12,"MAR","MAR106",2022-08-07,2022-08-26,88,NA,3.397,"y","",19,4.63157894736842
+"32",27.5,"MAR","MAR107",2022-08-07,2022-08-22,104,NA,2.939,"y","",15,6.93333333333333
+"33",27.5,"JRA","JRA110",2022-08-08,NA,0,2022-08-14,NA,"n","In PCR tube in -80",NA,NA
+"34",27.5,"JRA","JRA110",2022-08-08,2022-08-24,6,NA,NA,"y","",16,0.375
+"35",13.35,"PAR","PAR101",2022-08-09,2022-08-28,25,NA,3.178,"y","",19,1.31578947368421
+"36",27.5,"PAR","PAR102",2022-08-09,NA,0,2022-08-14,NA,"n","In PCR tube in -80",NA,NA
+"37",17.12,"PAR","PAR103",2022-08-09,2022-08-22,132,NA,3.114,"y","",13,10.1538461538462
+"38",23.75,"PAR","PAR104",2022-08-09,2022-08-15,45,NA,3.571,"y","Put whole deli cup, including eggs (laid on sugar cotton ball) and live adult in the -80",6,7.5
+"39",5.49,"PAR","PAR105",2022-08-09,NA,0,2022-08-31,NA,"n","",NA,NA
+"40",5.49,"PAR","PAR106",2022-08-09,NA,0,2022-08-31,NA,"n","",NA,NA
+"41",23.75,"PAR","PAR107",2022-08-09,2022-08-26,30,NA,3.414,"y","",17,1.76470588235294
+"42",17.12,"PAR","PAR108",2022-08-09,2022-08-22,80,NA,3.196,"y","",13,6.15384615384615
+"43",17.12,"PAR","PAR108B",2022-08-09,2022-08-25,69,NA,NA,"y","",16,4.3125
+"44",13.35,"MUR","MUR101",2022-08-09,2022-08-26,4,NA,NA,"y","Wing broken",17,0.235294117647059
+"45",5.49,"MUR","MUR102",2022-08-09,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"46",23.75,"MUR","MUR103",2022-08-09,NA,NA,NA,NA,"","sample missing",NA,NA
+"47",23.75,"HOP","HOP215",2022-08-11,2022-08-22,107,NA,3.38,"y","",11,9.72727272727273
+"48",13.35,"MAR","MAR209",2022-08-11,2022-09-10,21,2022-09-10,3.262,"y","",30,0.7
+"49",5.49,"MAR","MAR210",2022-08-11,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"50",17.12,"MAR","MAR211",2022-08-11,2022-09-16,31,NA,3.67,"y","",36,0.861111111111111
+"51",13.35,"MAR","MAR212",2022-08-11,NA,NA,NA,NA,NA,"Accidentally released on 8/15. Sorry!!",NA,NA
+"52",5.49,"MAR","MAR213",2022-08-11,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"53",27.5,"MAR","MAR214",2022-08-11,2022-08-23,11,NA,3.397,"y","",12,0.916666666666667
+"54",23.75,"MAR","MAR215",2022-08-11,2022-09-02,156,NA,3.649,"y","",22,7.09090909090909
+"55",5.49,"MAR","MAR216",2022-08-11,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"56",27.5,"PAR","PAR109",2022-08-11,2022-08-24,1,NA,NA,"y","",13,0.0769230769230769
+"57",17.12,"MUR","MUR104",2022-08-11,2022-08-22,56,NA,3.695,"y","suspected earlier date",11,5.09090909090909
+"58",27.5,"MUR","MUR105",2022-08-11,2022-08-23,11,NA,3.274,"y","",12,0.916666666666667
+"59",17.12,"POW","POW101",2022-08-11,2022-09-09,86,NA,2.933,"y","",29,2.96551724137931
+"60",5.49,"POW","POW102",2022-08-11,NA,0,2022-09-11,NA,"n","",NA,NA
+"61",13.35,"POW","POW103",2022-08-11,NA,0,2022-08-28,NA,"n","",NA,NA
+"62",27.5,"POW","POW104",2022-08-11,NA,0,2022-08-13,NA,"n","In PCR tube in -80",NA,NA
+"63",23.75,"POW","POW105",2022-08-11,2022-08-23,146,NA,3.011,"y","",12,12.1666666666667
+"64",5.49,"POW","POW106",2022-08-11,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"65",27.5,"WAW","WAW101",2022-08-11,2022-08-22,19,NA,3.186,"y","suspected earlier date, mislabeled as ""WAW12"" in PCR in -80, sorry! ",11,1.72727272727273
+"66",17.12,"WAW","WAW102",2022-08-11,NA,0,2022-08-27,NA,"n","",NA,NA
+"67",23.75,"WAW","WAW103",2022-08-11,2022-08-23,19,NA,3.217,"y","",12,1.58333333333333
+"68",13.35,"WAW","WAW104",2022-08-11,2022-09-17,92,NA,3.416,"y","",37,2.48648648648649
+"69",5.49,"WAW","WAW105",2022-08-11,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"70",13.35,"WAW","WAW106",2022-08-11,2022-08-25,167,NA,NA,"y","in PCR tube in -80",14,11.9285714285714
+"71",23.75,"SB","SB101",2022-08-11,NA,0,2022-09-12,NA,"n","",NA,NA
+"72",13.35,"SB","SB102",2022-08-11,NA,NA,NA,NA,NA,"sample missing",NA,NA
+"73",5.49,"SB","SB103",2022-08-11,NA,NA,NA,NA,NA,"I smooshed 9/12/22",NA,NA
+"74",17.12,"SB","SB104",2022-08-11,NA,0,2022-08-14,NA,"n","In PCR tube in -80. There were 2 females in here... both dead 8/14",NA,NA
+"75",27.5,"SB","SB105",2022-08-11,2022-09-15,10,NA,3.413,"y","",35,0.285714285714286
+"76",5.49,"SB","SB106",2022-08-11,NA,0,2022-08-29,NA,"n","",NA,NA
+"77",23.75,"SB","SB107",2022-08-11,2022-09-16,92,NA,3.1,"y","",36,2.55555555555556
+"78",13.35,"SB","SB108",2022-08-11,2022-08-25,22,NA,NA,"y","in PCR tube in -80",14,1.57142857142857
+"79",27.5,"SB","SB110",2022-08-11,2022-09-10,114,NA,3.245,"y","",30,3.8
+"80",5.49,"SB","SB111",2022-08-11,NA,0,2022-09-06,NA,"n","",NA,NA
+"81",27.5,"SB","SB112",2022-08-11,2022-09-05,118,NA,3.225,"y","",25,4.72
+"82",17.12,"SB","SB113",2022-08-11,2022-08-23,4,NA,3.159,"y","",12,0.333333333333333
+"83",17.12,"PLA","PLA101",2022-08-11,2022-09-03,89,2022-09-03,3.418,"y","",23,3.8695652173913
+"84",27.5,"PLA","PLA102",2022-08-11,NA,NA,NA,NA,NA,"escaped 8/22/22",NA,NA
+"85",23.75,"PLA","PLA103",2022-08-11,2022-08-29,109,NA,NA,"y","Was not dead in tube - flew away prior to wing length measurement",18,6.05555555555556
+"86",13.35,"PLA","PLA104",2022-08-11,2022-09-09,21,NA,3.394,"y","",29,0.724137931034483
+"87",23.75,"EUG","EUG101",2022-08-11,2022-08-27,19,NA,3.41,"y","",16,1.1875
+"88",27.5,"EUG","EUG102",2022-08-11,NA,NA,NA,NA,NA,":( escaped 9/5. no eggs laid before this date",NA,NA
+"89",17.12,"EUG","EUG103",2022-08-11,2022-09-12,37,NA,3.694,"y","",32,1.15625
+"90",13.35,"EUG","EUG104",2022-08-11,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"91",5.49,"EUG","EUG105",2022-08-11,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"92",13.35,"HOP","HOP216",2022-08-12,NA,0,NA,NA,"n","escaped 9/20/22. No eggs laid by this date so perhaps count as a 'no oviposition'?",NA,NA
+"93",23.75,"POW","POW107",2022-08-12,2022-09-07,118,NA,3.153,"y","",26,4.53846153846154
+"94",13.35,"SB","SB114",2022-08-12,2022-09-25,88,NA,3.309,"y","",44,2
+"95",23.75,"SB","SB115",2022-08-12,2022-09-10,111,2022-09-10,3.235,"y","",29,3.82758620689655
+"96",27.5,"PLA","PLA106",2022-08-12,NA,0,2022-08-14,NA,"n","In PCR tube in -80",NA,NA
+"97",17.12,"PLA","PLA107",2022-08-12,2022-09-12,4,NA,3.257,"y","",31,0.129032258064516
+"98",23.75,"PLA","PLA108",2022-08-12,2022-08-22,152,NA,3.589,"y","",10,15.2
+"99",13.35,"PLA","PLA109",2022-08-12,2022-09-08,128,NA,3.314,"y","",27,4.74074074074074
+"100",5.49,"PLA","PLA110",2022-08-12,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"101",27.5,"EUG","EUG106",2022-08-12,NA,0,2022-08-13,NA,"n","In PCR tube in -80",NA,NA
+"102",23.75,"MUR","MUR201",2022-08-15,NA,0,2022-08-19,NA,"n","In PCR tube in -80",NA,NA
+"103",13.35,"MUR","MUR202",2022-08-15,2022-08-28,25,NA,3.274,"y","",13,1.92307692307692
+"104",17.12,"MUR","MUR203",2022-08-15,2022-09-05,66,NA,3.207,"y","",21,3.14285714285714
+"105",5.49,"MUR","MUR204",2022-08-15,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"106",5.49,"JRA","JRA301",2022-08-16,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"107",17.12,"JRA","JRA302",2022-08-16,2022-08-29,131,NA,3.517,"y","",13,10.0769230769231
+"108",27.5,"JRA","JRA303",2022-08-16,2022-08-23,23,NA,3.321,"y","",7,3.28571428571429
+"109",13.35,"JRA","JRA304",2022-08-16,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"110",27.5,"MAR","MAR301",2022-08-16,NA,0,2022-08-30,3.394,"n","",NA,NA
+"111",23.75,"MAR","MAR302",2022-08-16,2022-08-22,167,NA,3.385,"y","",6,27.8333333333333
+"112",17.12,"PLA","PLA201",2022-08-16,NA,0,2022-08-23,3.433,"n","in PCR tube in -80",NA,NA
+"113",13.35,"PAR","PAR201",2022-08-16,NA,0,2022-08-25,NA,"n","In PCR tube in -80",NA,NA
+"114",27.5,"MUR","MUR205",2022-08-16,2022-09-04,94,NA,3.346,"y","",19,4.94736842105263
+"115",27.5,"MUR","MUR206",2022-08-16,NA,0,2022-09-03,NA,"n","",NA,NA
+"116",5.49,"MUR","MUR207",2022-08-16,NA,0,2022-09-06,NA,"n","",NA,NA
+"117",13.35,"MAR","MAR303",2022-08-17,NA,NA,NA,NA,NA,"This one looked like it immediately died in the sugar ball cup (on 8/18/22). Would disregard this lifespan & sample",NA,NA
+"118",17.12,"POW","POW201",2022-08-17,2022-09-11,26,NA,3.17,"y","",25,1.04
+"119",27.5,"POW","POW202",2022-08-17,NA,NA,NA,NA,NA,"May have gotten squished on 9/5/22 rather than death by natural causes. Recommend discarding this death date",NA,NA
+"120",5.49,"POW","POW203",2022-08-17,NA,0,2022-09-08,NA,"n","",NA,NA
+"121",17.12,"POW","POW204",2022-08-17,NA,0,2022-08-27,3.008,"n","",NA,NA
+"122",17.12,"POW","POW205",2022-08-17,2022-09-07,64,NA,3.189,"y","Its possible these (or some of these) were laid earlier -- the eggs were buried in corners of the filter paper and very hard to spot",21,3.04761904761905
+"123",23.75,"POW","POW206",2022-08-17,2022-08-25,47,NA,NA,"y","in PCR tube in -80",8,5.875
+"124",27.5,"WAW","WAW201",2022-08-17,NA,0,2022-09-21,NA,"n","",NA,NA
+"125",23.75,"WAW","WAW202",2022-08-17,NA,0,NA,NA,"n","Accidentally released 9/19 but no eggs found by this date so seems like it was not ovipositing",NA,NA
+"126",5.49,"PLA","PLA202",2022-08-17,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"127",17.12,"EUG","EUG201",2022-08-17,2022-09-12,7,NA,3.723,"y","",26,0.269230769230769
+"128",5.49,"EUG","EUG202",2022-08-17,NA,0,NA,NA,"n","Adult still alive but no eggs laid by date of experiment termination (9/28)",NA,NA
+"129",27.5,"POW","POW207",2022-08-18,2022-08-24,31,NA,NA,"y","",6,5.16666666666667
+"130",17.12,"MUR","MUR208",2022-08-15,2022-08-22,93,NA,3.07,"y","",7,13.2857142857143

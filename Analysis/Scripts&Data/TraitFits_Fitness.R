@@ -644,66 +644,64 @@ library(ggplot2)
 load("fit_meansd_uni.Rsave")
 
 ###### 5a. Plot of CTmax, CTmin, Topt for each population #####
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors = rep(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"), each = 3)
 
-# order from coldest to hottest temp in wettest quarter
-#OldPopOrder = c("EUG", "WAW","HOP", "PLA", "SB", "MAR2", "MAR1", "PAR", "JRA", "POW") 
-PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
-fitdf_uni$Population = factor(fitdf_uni$Population, levels = PopOrder)
+fitdf_uni$Population = factor(fitdf_uni$Population, levels = LatOrder)
 fitdf_uni = fitdf_uni[order(fitdf_uni$Population),]
 fitdf_uni = fitdf_uni[fitdf_uni$param != "Tbreadth",]
 fitdf_uni = fitdf_uni[fitdf_uni$param != "Pmax",]
 
-# colors for each population 
-colors3 = rep(rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695")), each = 3)
-
-plotfit = ggplot(fitdf_uni, aes(x=Population, y=mean, col = colors3)) + 
+ggplot(fitdf_uni, aes(x=Population, y=mean, col = LatColors)) + 
   scale_y_continuous(limits = c(0, 35)) +
-  geom_point(stat="identity", col=colors3, 
+  geom_point(stat="identity", col=LatColors, size = 2,
              position=position_dodge(width = 1)) +
-  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = colors3,
-                position=position_dodge(.9), width = 0.3) + 
-  ggtitle("fitness") + 
+  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors, 
+                position=position_dodge(.9), width = 0.3, size = 0.7) +
+  ggtitle("Thermal limits of fitness (uniform priors)") + 
   theme_minimal() +  coord_flip()  + 
-  labs(x = "Population", y = "Temperature (C)") + 
+  labs(x = "Population", y = "Temperature (\u00B0C)") +
   theme(axis.text=element_text(size=15), 
         axis.title = element_text(size = 16),
         legend.text=element_text(size=15),
         legend.title = element_text(size=16),
         plot.title = element_text(hjust = 0.5, size = 24),
-        legend.position= "none") 
+        legend.position= "none",
+        panel.border = element_rect(colour = "black", fill = NA))
 
 ###### 5b. Plot of Pmax for each population #####
 
 load("fit_meansd_uni.Rsave")
-PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
-fitdf_uni$Population = factor(fitdf_uni$Population, levels = PopOrder)
+
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors2 = c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695")
+
+fitdf_uni$Population = factor(fitdf_uni$Population, levels = LatOrder)
 fitdf_uni = fitdf_uni[order(fitdf_uni$Population),]
 fitdf_uni = fitdf_uni[fitdf_uni$param == "Pmax",]
 
-colors4 = rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695"))
-
-plotfit_Pmax = ggplot(fitdf_uni, aes(x=Population, y=mean, col = colors4)) + 
-  scale_y_continuous(limits = c(0, 15)) +
-  geom_point(stat="identity", col=colors4, 
+ggplot(fitdf_uni, aes(x=Population, y=mean, col = LatColors2)) + 
+  scale_y_continuous(limits = c(0, 13)) +
+  geom_point(stat="identity", col=LatColors2, size = 2,
              position=position_dodge(width = 1)) +
-  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = colors4,
-                position=position_dodge(.9), width = 0.3) + 
-  ggtitle("fitness") + 
+  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors2,
+                position=position_dodge(.9), width = 0.3, size = 0.7) + 
+  ggtitle("Max fitness (uniform priors)") + 
   theme_minimal() +  coord_flip()  + 
-  labs(x = "Population", y = "Peak trait performance") + 
+  labs(x = "Population", y = "Max fitness") + 
   theme(axis.text=element_text(size=15), 
         axis.title = element_text(size = 16),
         legend.text=element_text(size=15),
         legend.title = element_text(size=16),
         plot.title = element_text(hjust = 0.5, size = 24),
-        legend.position= "none") 
-
+        legend.position= "none",
+        panel.border = element_rect(colour = "black", fill = NA)) 
 
 ###### 5c. Plot fitness curves for all populations #####
-
 load(file = "fit_meansd_uni.Rsave")
-colors3 = rep(rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695")), each = 3)
-PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
+
+LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
+LatColors2 = rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"))
 
 EUGdata = fit.EUG.out$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 WAWdata = fit.WAW.out$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
@@ -716,21 +714,55 @@ PARdata = fit.PAR.out$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 JRAdata = fit.JRA.out$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 POWdata = fit.POW.out$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 
-# Plot data + fit
-plot(fitness ~ Temp.Treatment, 
+# Plot data + fit 
+plot(SexWeightedFitness ~ Temp.Treatment, 
      xlim = c(5, 35), ylim = c(0,12), data = data.fit.HOP, type = "n", bty = "n",
-     ylab = "fitness", xlab = "Temperature (\u00B0C)", pch = 1,
-     main = "Fitness", cex.main = 2, cex.lab = 1.4, cex.axis = 1.2)
-lines(EUGdata ~ Temp.xs, col = "#313695", lwd = 1.5)
-lines(WAWdata ~ Temp.xs, col = "#4575b4", lwd = 1.5)
-lines(PLAdata ~ Temp.xs, col = "#74add1", lwd = 1.5)
-lines(HOPdata ~ Temp.xs, col = "#abd9e9", lwd = 1.5)
-lines(JRAdata ~ Temp.xs, col = "#e0f3f8", lwd = 1.5)
-lines(MAR2data ~ Temp.xs, col = "#fee090", lwd = 1.5)
-lines(MAR1data ~ Temp.xs, col = "#fdae61", lwd = 1.5)
-lines(POWdata ~ Temp.xs, col = "#f46d43", lwd = 1.5)
-lines(PARdata ~ Temp.xs, col = "#d73027", lwd = 1.5)
-lines(SBdata ~ Temp.xs, col = "#a50026", lwd = 1.5)
+     ylab = "fitness (offspring per individual)", xlab = "Temperature (\u00B0C)", pch = 1,
+     main = "Fitness (uniform priors)", cex.main = 2, cex.lab = 1.4, cex.axis = 1.2)
+legend("topright", legend = LatOrder, bty = "n", cex  = 1.0,
+       col = LatColors2, lty = 1, lwd = 2)
+lines(POWdata ~ Temp.xs, col = LatColors2[10], lwd = 1.5)
+lines(SBdata ~ Temp.xs, col = LatColors2[9], lwd = 1.5)
+lines(PARdata ~ Temp.xs, col = LatColors2[8], lwd = 1.5)
+lines(WAWdata ~ Temp.xs, col = LatColors2[7], lwd = 1.5)
+lines(JRAdata ~ Temp.xs, col = LatColors2[6], lwd = 1.5)
+lines(MAR1data ~ Temp.xs, col = LatColors2[5], lwd = 1.5)
+lines(MAR2data ~ Temp.xs, col = LatColors2[4], lwd = 1.5)
+lines(PLAdata ~ Temp.xs, col = LatColors2[3], lwd = 1.5)
+lines(HOPdata ~ Temp.xs, col = LatColors2[2], lwd = 1.5)
+lines(EUGdata ~ Temp.xs, col = LatColors2[1], lwd = 1.5)
+box(col = "black")
+
+
+
+###### 5d. Plot Tbreadth for all populations #####
+
+load("fit_meansd_uni.Rsave")
+
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors2 = c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695")
+
+fitdf_uni$Population = factor(fitdf_uni$Population, levels = LatOrder)
+fitdf_uni = fitdf_uni[order(fitdf_uni$Population),]
+fitdf_uni = fitdf_uni[fitdf_uni$param == "Tbreadth",]
+
+ggplot(fitdf_uni, aes(x=Population, y=mean, col = LatColors2)) + 
+  scale_y_continuous(limits = c(6, 16)) +
+  geom_point(stat="identity", col=LatColors2, size = 2,
+             position=position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors2,
+                position=position_dodge(.9), width = 0.3, size = 0.7) + 
+  ggtitle("Thermal breadth (uniform priors)") + 
+  theme_minimal() +  coord_flip()  + 
+  labs(x = "Population", y = "Temperature (\u00B0C)") + 
+  theme(axis.text=element_text(size=15), 
+        axis.title = element_text(size = 16),
+        legend.text=element_text(size=15),
+        legend.title = element_text(size=16),
+        plot.title = element_text(hjust = 0.5, size = 24),
+        legend.position= "none",
+        panel.border = element_rect(colour = "black", fill = NA)) 
+
 
 ###### 6. Generate informative priors: Leave-one-out with uniform priors ######
 # Use same uniform priors settings as above
@@ -1472,7 +1504,7 @@ MeanSd = function(x) {
 }
 
 # Output to pdf
-pdf(file = "~/Documents/Current_Projects/LifeHistoryTraitExp/Analysis_TraitFits/BayesianFitPlots/fitness.pdf",   
+pdf(file = "~/Documents/Current_Projects/LifeHistoryTraitExp/Analysis_TraitFits/BayesianFitPlots/fitness_HigherWeight.pdf",   
     width = 6, # The width of the plot in inches
     height = 8) # The height of the plot in inches
 
@@ -1675,14 +1707,8 @@ par(mar = c(5, 5, 3, 2))
 
 
 ###### 9a. Plot of CTmax, CTmin, Topt for each population #####
-
-# Now ordered by Latitude
-# Old PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
-# old colors for each population
-# colors3 = rep(rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695")), each = 3)
-
-LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
-LatColors = rep(rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fee090", "#e0f3f8", "#abd9e9", "#74add1", "#4575b4", "#313695")), each = 3)
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors = rep(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"), each = 3)
 
 fitdf_inf$Population = factor(fitdf_inf$Population, levels = LatOrder)
 fitdf_inf = fitdf_inf[order(fitdf_inf$Population),]
@@ -1690,11 +1716,11 @@ fitdf_inf = fitdf_inf[fitdf_inf$param != "Tbreadth",]
 fitdf_inf = fitdf_inf[fitdf_inf$param != "Pmax",]
 
 ggplot(fitdf_inf, aes(x=Population, y=mean, col = LatColors)) + 
-  scale_y_continuous(limits = c(0, 35)) +
+  scale_y_continuous(limits = c(0, 32)) +
   geom_point(stat="identity", col=LatColors, size = 2,
              position=position_dodge(width = 1)) +
   geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors, 
-                position=position_dodge(.9), width = 0.3) + 
+                position=position_dodge(.9), width = 0.3, size = 0.7) + 
   ggtitle("Thermal limits of fitness") + 
   theme_minimal() +  coord_flip()  + 
   labs(x = "Population", y = "Temperature (\u00B0C)") +
@@ -1709,8 +1735,8 @@ ggplot(fitdf_inf, aes(x=Population, y=mean, col = LatColors)) +
 ###### 9b. Plot Pmax for each population #####
 load("fit_meansd_inf.Rsave")
 
-LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
-LatColors2 = rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fee090", "#e0f3f8", "#abd9e9", "#74add1", "#4575b4", "#313695"))
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors2 = c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695")
 
 fitdf_inf$Population = factor(fitdf_inf$Population, levels = LatOrder)
 fitdf_inf = fitdf_inf[order(fitdf_inf$Population),]
@@ -1721,7 +1747,7 @@ ggplot(fitdf_inf, aes(x=Population, y=mean, col = LatColors2)) +
   geom_point(stat="identity", col=LatColors2, size = 2,
              position=position_dodge(width = 1)) +
   geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors2,
-                position=position_dodge(.9), width = 0.3) + 
+                position=position_dodge(.9), width = 0.3, size = 0.7) + 
   ggtitle("fitness") + 
   theme_minimal() +  coord_flip()  + 
   labs(x = "Population", y = "Max fitness") + 
@@ -1739,7 +1765,7 @@ ggplot(fitdf_inf, aes(x=Population, y=mean, col = LatColors2)) +
 load(file = "fit_meansd_inf.Rsave")
 
 LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
-LatColors2 = rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fee090", "#e0f3f8", "#abd9e9", "#74add1", "#4575b4", "#313695"))
+LatColors2 = rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"))
 
 EUGdata = fit.EUG.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 WAWdata = fit.WAW.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
@@ -1753,10 +1779,12 @@ JRAdata = fit.JRA.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 POWdata = fit.POW.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 
 # Plot data + fit 
+par(mar = (c(4.5, 4.5, 2.5, 1)))
 plot(SexWeightedFitness ~ Temp.Treatment, 
      xlim = c(5, 35), ylim = c(0,12), data = data.fit.HOP, type = "n", bty = "n",
-     ylab = "Individual reproductive success", xlab = "Temperature (\u00B0C)", pch = 1,
-     main = "Fitness", cex.main = 2, cex.lab = 1.4, cex.axis = 1.2)
+     ylab = "fitness (offspring per individual)", xlab = "Temperature (\u00B0C)", pch = 1,
+     main = "Fitness", cex.main = 1.7, cex.lab = 1.4, cex.axis = 1.2)
+box(col = "black")
 lines(POWdata ~ Temp.xs, col = LatColors2[10], lwd = 1.5)
 lines(SBdata ~ Temp.xs, col = LatColors2[9], lwd = 1.5)
 lines(PARdata ~ Temp.xs, col = LatColors2[8], lwd = 1.5)
@@ -1768,13 +1796,14 @@ lines(PLAdata ~ Temp.xs, col = LatColors2[3], lwd = 1.5)
 lines(HOPdata ~ Temp.xs, col = LatColors2[2], lwd = 1.5)
 lines(EUGdata ~ Temp.xs, col = LatColors2[1], lwd = 1.5)
 box(col = "black")
+legend("topright", LatOrder, col = LatColors2, lty = 1, cex = 0.8, lwd = 2, bty = "n")
+
 
 ##### 9d. Plot Tbreadth for all populations #####
-
 load("fit_meansd_inf.Rsave")
 
-LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
-LatColors2 = rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fee090", "#e0f3f8", "#abd9e9", "#74add1", "#4575b4", "#313695"))
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors2 = c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695")
 
 fitdf_inf$Population = factor(fitdf_inf$Population, levels = LatOrder)
 fitdf_inf = fitdf_inf[order(fitdf_inf$Population),]
@@ -1785,7 +1814,7 @@ ggplot(fitdf_inf, aes(x=Population, y=mean, col = LatColors2)) +
   geom_point(stat="identity", col=LatColors2, size = 2,
              position=position_dodge(width = 1)) +
   geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors2,
-                position=position_dodge(.9), width = 0.3) + 
+                position=position_dodge(.9), width = 0.3, size = 0.7) + 
   ggtitle("Thermal breadth") + 
   theme_minimal() +  coord_flip()  + 
   labs(x = "Population", y = "Temperature (\u00B0C)") + 
@@ -1796,6 +1825,8 @@ ggplot(fitdf_inf, aes(x=Population, y=mean, col = LatColors2)) +
         plot.title = element_text(hjust = 0.5, size = 24),
         legend.position= "none",
         panel.border = element_rect(colour = "black", fill = NA)) 
+
+
 
 
 

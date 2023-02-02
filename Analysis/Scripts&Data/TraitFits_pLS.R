@@ -605,32 +605,31 @@ load("pLS_meansd_uni.Rsave")
 
 ###### 5a. Plot of CTmax, CTmin, Topt for each population #####
 
-# order from coldest to hottest temp in wettest quarter
-#OldPopOrder = c("EUG", "WAW","HOP", "PLA", "SB", "MAR2", "MAR1", "PAR", "JRA", "POW") 
-PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
-pLSdf_uni$Population = factor(pLSdf_uni$Population, levels = PopOrder)
+# order by latitude of collection
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors = rep(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"), each = 3)
+pLSdf_uni$Population = factor(pLSdf_uni$Population, levels = LatOrder)
 pLSdf_uni = pLSdf_uni[order(pLSdf_uni$Population),]
 pLSdf_uni = pLSdf_uni[pLSdf_uni$param != "Tbreadth",]
 pLSdf_uni = pLSdf_uni[pLSdf_uni$param != "Pmax",]
 
-# colors for each population 
-colors3 = rep(rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695")), each = 3)
-
-plotpLS = ggplot(pLSdf_uni, aes(x=Population, y=mean, col = colors3)) + 
-  scale_y_continuous(limits = c(0, 35)) +
-  geom_point(stat="identity", col=colors3, 
+plotpLSuni = ggplot(pLSdf_uni, aes(x=Population, y=mean, col = LatColors)) + 
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_discrete(position = "top") +
+  geom_point(stat="identity", col=LatColors, 
              position=position_dodge(width = 1)) +
-  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = colors3,
+  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors,
                 position=position_dodge(.9), width = 0.3) + 
-  ggtitle("pLS") + 
+  ggtitle("Larval survival probability") + 
   theme_minimal() +  coord_flip()  + 
-  labs(x = "Population", y = "Temperature (C)") + 
-  theme(axis.text=element_text(size=15), 
+  labs(x = " ", y = "Temperature (\u00B0C)") + 
+  theme(axis.text=element_text(size=14), 
         axis.title = element_text(size = 16),
         legend.text=element_text(size=15),
         legend.title = element_text(size=16),
         plot.title = element_text(hjust = 0.5, size = 24),
-        legend.position= "none") 
+        legend.position= "none",
+        panel.border = element_rect(colour = "black", fill = NA))
 
 ###### 5b. Plot of Pmax for each population #####
 
@@ -1643,9 +1642,9 @@ par(mfrow = c(1,1))
 par(mar = c(2.5, 2.5, 2.5, 2.5))
 
 ###### 9a. Plot of CTmax, CTmin, Topt for each population #####
-# order from coldest to hottest temp in wettest quarter
-LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
-LatColors = rep(rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fee090", "#e0f3f8", "#abd9e9", "#74add1", "#4575b4", "#313695")), each = 3)
+# order by latitude of collection
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColors = rep(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695"), each = 3)
 
 pLSdf_inf$Population = factor(pLSdf_inf$Population, levels = LatOrder)
 pLSdf_inf = pLSdf_inf[order(pLSdf_inf$Population),]
@@ -1655,14 +1654,14 @@ pLSdf_inf = pLSdf_inf[pLSdf_inf$param != "Pmax",]
 plotpLSinf = ggplot(pLSdf_inf, aes(x=Population, y=mean, col = LatColors)) + 
   scale_y_continuous(limits = c(0, 40)) +
   scale_x_discrete(position = "top") +
-  geom_point(stat="identity", col=LatColors, 
+  geom_point(stat="identity", col=LatColors, size = 2, 
              position=position_dodge(width = 1)) +
-  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors,
-                position=position_dodge(.9), width = 0.3) + 
+  geom_errorbar(aes(ymin=lower95, ymax=upper95), col = LatColors, size = 0.7,
+                position=position_dodge(.9), width = 0.5) + 
   ggtitle("Larval survival probability") + 
   theme_minimal() +  coord_flip()  + 
   labs(x = " ", y = "Temperature (\u00B0C)") + 
-  theme(axis.text=element_text(size=12), 
+  theme(axis.text=element_text(size=14), 
         axis.title = element_text(size = 16),
         legend.text=element_text(size=15),
         legend.title = element_text(size=16),
@@ -1700,9 +1699,10 @@ plotpLSinf_Pmax = ggplot(pLSdf_inf, aes(x=Population, y=mean, col = colors4)) +
 ###### 9c. Plot pLS curve for all populations #####
 
 load(file = "pLS_meansd_inf.Rsave")
-colors3 = rep(rev(c("#a50026","#d73027","#f46d43","#fdae61","#fee090","#e0f3f8","#abd9e9","#74add1", "#4575b4","#313695")), each = 3)
-#OldPopOrder = c("EUG", "WAW","HOP", "PLA", "SB", "MAR2", "MAR1", "PAR", "JRA", "POW") 
-PopOrder = c("EUG", "WAW", "PLA", "HOP", "JRA", "MAR2", "MAR1", "POW", "PAR", "SB")
+
+LatOrder = c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW")
+LatColors = rep(rev(c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", 
+                      "#abd9e9", "#74add1", "#4575b4", "#313695")), each = 3)
 
 EUGdata = pLS.EUG.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 WAWdata = pLS.WAW.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
@@ -1716,17 +1716,20 @@ JRAdata = pLS.JRA.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 POWdata = pLS.POW.out.inf$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"]
 
 # Plot data + fit
+par(mar = (c(4.5, 4.5, 2.5, 1)))
+
 plot(Larval.Survival ~ Temp.Treatment, 
-     xlim = c(5, 45), ylim = c(0,1), data = data.pLS.HOP, type = "n", bty = "n",
+     xlim = c(5, 40), ylim = c(0,1), data = data.pLS.HOP, type = "n", bty = "n",
      ylab = "probability", xlab = "Temperature (\u00B0C)", pch = 1,
-     main = "Probability larval survival", cex.main = 2, cex.lab = 1.4, cex.axis = 1.2)
+     main = "Probability larval survival", cex.main = 1.7, cex.lab = 1.4, cex.axis = 1.2)
+box(col = "black")
 lines(EUGdata ~ Temp.xs, col = "#313695", lwd = 1.5)
-lines(WAWdata ~ Temp.xs, col = "#4575b4", lwd = 1.5)
+lines(HOPdata ~ Temp.xs, col = "#4575b4", lwd = 1.5)
 lines(PLAdata ~ Temp.xs, col = "#74add1", lwd = 1.5)
-lines(HOPdata ~ Temp.xs, col = "#abd9e9", lwd = 1.5)
-lines(JRAdata ~ Temp.xs, col = "#e0f3f8", lwd = 1.5)
-lines(MAR2data ~ Temp.xs, col = "#fee090", lwd = 1.5)
-lines(MAR1data ~ Temp.xs, col = "#fdae61", lwd = 1.5)
-lines(POWdata ~ Temp.xs, col = "#f46d43", lwd = 1.5)
-lines(PARdata ~ Temp.xs, col = "#d73027", lwd = 1.5)
-lines(SBdata ~ Temp.xs, col = "#a50026", lwd = 1.5)
+lines(MAR2data ~ Temp.xs, col = "#abd9e9", lwd = 1.5)
+lines(MAR1data ~ Temp.xs, col = "#7cae00", lwd = 1.5)
+lines(JRAdata ~ Temp.xs, col = "#fed439ff", lwd = 1.5)
+lines(WAWdata ~ Temp.xs, col = "#fdae61", lwd = 1.5)
+lines(PARdata ~ Temp.xs, col = "#f46d43", lwd = 1.5)
+lines(SBdata ~ Temp.xs, col = "#ec3c30", lwd = 1.5)
+lines(POWdata ~ Temp.xs, col = "#ab041b", lwd = 1.5)

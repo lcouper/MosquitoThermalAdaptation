@@ -6,4 +6,19 @@ These are the scripts and data used for analysis in the manuscript *"Limited var
 
 ## File organization 
 
+Scripts and data are organized in the following folders:
+
+**ClimateDataAnalysis**   
+- Earth Engine script used to calculate relevant temperature variables from PRISM data
+- Raw and compiled data files generated from Earth Engine script 
+
+
+**Experiment Data**
+- R scripts used for data-reshaping and basic statistical analysis (eg., regression models and correlations described in the manuscript)
+- Raw and cleaned data files for both the main and validation experiment
+
+**Thermal Performance Curves**
+- R scripts used in the Bayesian thermal performance curve models (1 script per trait)
+- Cleaned experiment data file used for TPC fitting
+
  

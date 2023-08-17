@@ -12,7 +12,7 @@ library(tidyr)
 library(ggplot2)
 
 # Set working directory
-setwd("~/Documents/Current_Projects/LifeHistoryTraitExp/Analysis_TraitFits/")
+setwd("~/Documents/Current Projects/LifeHistoryTraitExp/Analysis_TraitFits/")
 load("fit_meansd_inf.Rsave")
 load("fit_meansd_uni.Rsave")
 
@@ -125,19 +125,24 @@ AllTraitsDf2 = rbind(pLSdf_uni, LDRdf_uni,
 # Calculate means for each trait and by parameter
 # These values become Supplemental Table 4.
 MeansDf = AllTraitsDf %>% group_by(param, trait) %>% 
-  dplyr::summarise(mean_value = mean(mean)) %>% as.data.frame()
-SdDf = AllTraitsDf %>% group_by(param, trait) %>% 
-  dplyr::summarise(sd_value = sd(mean)) %>% as.data.frame()
-
+  dplyr::summarise(mean_value = mean(mean),
+                   min_value = min(mean), max_value = max(mean)) %>% as.data.frame()
+# These values become Supplemental Table 5.
+MeansDf2 = AllTraitsDf2 %>% group_by(param, trait) %>% 
+  dplyr::summarise(mean_value = mean(mean),
+                   min_value = min(mean), max_value = max(mean)) %>% as.data.frame()
 
 # Calculate ranges across all traits for each parameter, excluding fitness
 # These values referenced in results
 AllTraitsDf = AllTraitsDf[AllTraitsDf$trait != "Fitness",]
-RangesDf = AllTraitsDf %>% group_by(param) %>% 
+RangesDf = AllTraitsDf %>% group_by(param, trait) %>% 
   dplyr::summarise(range_value = max(mean) - min(mean)) %>% as.data.frame()
 
 
-##### Q2 part 2: impact of life history traits on fitness #####
+
+
+
+##### Q2 part 2: impact of life history traits on fitness (old) #####
 setwd("~/Documents/Current_Projects/LifeHistoryTraitExp/Fitness_Breakdown")
 df = read.csv("Fitness_SensitivityAnalysis.csv")[,-1]
 library(lme4)
@@ -175,30 +180,31 @@ t2 = tester %>% group_by(Temp.Treatment) %>%
 
 #### Q3. Temperature drivers of variation in fitness ######
 
-setwd("~/Documents/Current_Projects/LifeHistoryTraitExp")
+setwd("~/Documents/Current Projects/LifeHistoryTraitExp")
 library(dplyr)
 
 # Load TPC parameters (CTmin, CTmax, Topt, Pmax, Tbreadth) for fitness
 load("Analysis_TraitFits/fit_meansd_inf.Rsave")
 
 # Pull in calculated temperature variables (from PRISM data)
-TempVars = read.csv("TemperatureData_PRISM/TempVarsAtTreeholes.csv", header = T)[,-1]
+TempVars = read.csv("TemperatureData/PRISM/TempVarsAtTreeholes.csv", header = T)[,-1]
 
 # Part 1: Examine correlations between temperature variables
 library(corrplot)
 
 # re-organized columns and convert to matrix
 TempMat = as.matrix(TempVars[,c(2,6,3,4,5)])
-colnames(TempMat) = c("Annual mean", "Wet quarter mean", "Seasonal variation",
+colnames(TempMat) = c("Annual mean", "Jan-March mean", "Seasonal variation",
                       "Spring/Summer daily max", "Days > 35 (\u00B0C)")
 TempCorr = cor(TempMat)
-corrplot(TempCorr,  addCoef.col = 'black', 
+corrplot(TempCorr,  addCoef.col = 'black', type = "lower",
          tl.col = "black", tl.srt = 45)
 # For significance-testing below: calculate the effective number of tests
 library(poolr)
 meff(TempCorr, method = "nyholt") 
 
 # Part 2: Investigate correlations between TPC parameters and temperature variables
+library(plyr)
 df = join(fitdf_inf, TempVars, by = "Population", type = "left")
 
 # Examine relationship between Pmax of fitness and temperature variables
@@ -210,7 +216,7 @@ cor.test(dfPmax$mean, dfPmax$avgExtreme) # extreme: 0.449
 cor.test(dfPmax$mean, dfPmax$avgNumDays) # >3C: 0.326
 cor.test(dfPmax$mean, dfPmax$avgWetTemp) # mean wet temp: 0.581
 
-PvalAdj = p.adjust(PvalList,  method = "fdr", n = 3)
+# PvalAdj = p.adjust(PvalList,  method = "fdr", n = 3)
 
 # Only other TPC parameters for individual life history traits with sig variation:
 # CTmax LDR, CTmax PDR, Topt PDR
@@ -242,8 +248,14 @@ cor.test(df3Tmax$mean, df3Tmax$avgExtreme) # extreme: 0.678, sig
 cor.test(df3Tmax$mean, df3Tmax$avgNumDays) # >35 C: 0.695, sig
 cor.test(df3Tmax$mean, df3Tmax$avgWetTemp) # mean wet temp: 0.386, nonsig
 
+# see if significant after removing POW
+df3TmaxNoPOW = df3Tmax[-10,]
+cor.test(df3TmaxNoPOW$mean, df3TmaxNoPOW$avgAnnualMean) # now not significant
+cor.test(df3TmaxNoPOW$mean, df3TmaxNoPOW$avgExtreme) # now barely not significant
+cor.test(df3TmaxNoPOW$mean, df3TmaxNoPOW$days35) # still significant
+
 # adjust p-values?
-PvalAdj = p.adjust(PvalList,  method = p.adjust.methods, n = length(PvalList))
+# PvalAdj = p.adjust(PvalList,  method = p.adjust.methods, n = length(PvalList))
 
 # Examine relationship between Topt of PDR and temperature variables
 df3Topt = df3[df3$param == "Topt",]
@@ -254,8 +266,163 @@ cor.test(df3Topt$mean, df3Topt$avgExtreme)# extreme: 0.708
 cor.test(df3Topt$mean, df3Topt$avgNumDays)# >35 C: 0.703
 cor.test(df3Topt$mean, df3Topt$avgWetTemp) # mean wet temp: 0.422
 
+# see if significant after removing POW
+df3ToptNoPOW = df3Topt[-10,]
+cor.test(df3ToptNoPOW$mean, df3ToptNoPOW$avgAnnualMean) # now not significant
+cor.test(df3ToptNoPOW$mean, df3ToptNoPOW$avgExtreme) # still significant
+cor.test(df3ToptNoPOW$mean, df3ToptNoPOW$days35) # still significant
+
+
 # adjust p-values?
-PvalAdj = p.adjust(PvalList,  method = p.adjust.methods, n = length(PvalList))
+# PvalAdj = p.adjust(PvalList,  method = p.adjust.methods, n = length(PvalList))
+
+#### Q4: How often thermal limits exceed at present ####
+
+setwd("~/Documents/Current Projects/LifeHistoryTraitExp/TemperatureData/PRISM/")
+
+# pull in climate data files
+over35 = read.csv("Treehole_Exceed35_2000_end2021.csv", header = T, row.names = 1)
+over35$mean = rowMeans(over35)
+over35s = read.csv("Treehole_Exceed35_SUBSET_2000_end2021.csv", header = T, row.names = 1)
+over35s$mean = rowMeans(over35s)
+over31.6 = read.csv("Treehole_DaysExceed31.6_2000_end2021.csv", header = T, row.names = 1)
+over31.6$mean = rowMeans(over31.6)
+over31.6s = read.csv("Treehole_DaysExceed31.6_SUBSET_2000_end2021.csv", header = T, row.names = 1)
+over31.6s$mean = rowMeans(over31.6s)
+
+
+##### Temperature Data Comparisons: iButtons #####
+
+setwd("~/Documents/Current Projects/LifeHistoryTraitExp/TemperatureData/Comparisons")
+
+prism = read.csv("PRISMdata_POW02.csv", header = T)
+ibut = read.csv("iButtondata_POW02.csv", header = T)[-1]
+ibut$Date.Time = as.POSIXct(ibut$Date.Time, format = "%m/%d/%y %H:%M")
+
+# calculate average daily temperature from ibutton data (measured every 4 hours)
+ibut$Day = strftime(ibut$Date.Time, format="%m/%d/%y")
+ibutMean = ibut %>% dplyr::group_by(Day) %>%
+  dplyr::summarize(mean_X1 = mean(Temp.C)) %>% as.data.frame()
+
+# remove first two rows of ibutton data to match prism data
+ibutMean = ibutMean[-c(1:2),]
+# remove last row of prims data to match ibutton data
+prism = prism[-nrow(prism),]
+
+# Combine
+TempData = cbind.data.frame(ibutMean,prism[,2])
+colnames(TempData) = c("Date", "iButton", "PRISM")
+TempData$Date = as.POSIXct(TempData$Date, format = "%m/%d/%y")
+
+# Plot
+plot(TempData$iButton ~ TempData$Date, type = "l", ylim = c(5,32),
+     ylab = "Temperature (C)", xlab = "Day", main = "Mean Daily Temperature",
+     cex.axis = 1.5, lwd = 1.5)
+points(TempData$PRISM ~ TempData$Date, type = "l", col = "red", lwd = 1.5)
+legend("topleft", legend = c("iButton", "PRISM"), col = c("black", "red"), lty = 1, lwd = 4, cex = 1.5)
+mean(TempData$PRISM - TempData$iButton) # PRISM on average 3C higher than ibutton
+
+cor.test(TempData$PRISM, TempData$iButton)
+
+# Repeat for daily max temperatures
+ibutMax = ibut %>% dplyr::group_by(Day) %>%
+  dplyr::summarize(max_temp = max(Temp.C)) %>% as.data.frame()
+prism2= read.csv("PRISMdata_POW02_Max.csv", header = T)
+ibutMax = ibutMax[-c(1:2),]
+prism2 = prism2[-nrow(prism2),]
+TempData2 = cbind.data.frame(ibutMax,prism2[,2])
+TempData2$Day = as.POSIXct(TempData2$Day, format = "%m/%d/%y")
+colnames(TempData2) = c("Date", "iButton", "PRISM")
+
+plot(TempData2$iButton ~ TempData2$Date, type = "l", ylim = c(5,38),
+     ylab = "Temperature (C)", xlab = "Day", main = "Max Daily Temperature", 
+     cex.axis = 1.5, lwd = 1.5)
+points(TempData2$PRISM ~ TempData2$Date, type = "l", col = "red", lwd = 1.5)
+legend("topleft", legend = c("iButton", "PRISM"), col = c("black", "red"), lty = 1, lwd = 4, cex = 1.5)
+mean(TempData2$PRISM - TempData2$iButton) # PRISM on average 5C higher than ibutton
+
+cor.test(TempData2$PRISM, TempData2$iButton)
+
+
+# Calculate mean daily max in spring and summer (3/19 - 9/23) 
+# to compare with PRISM data source
+mean(ibutMax$max_temp[52:240]) # 23.39947 (same variable from PRISM was 27.77)
+
+# Calculate number of days where temperatures > 35
+which(ibut$Temp.C > 35) # never exceeded
+# maximum temperature recorded here was 34
+which(ibutMax$max_temp > 31.6) # 8 days where temps > 31.6
+
+
+#### Repeat for SB04 ####
+prism = read.csv("PRISMdata_SB04.csv", header = T)
+ibut = read.csv("iButtondata_SB04.csv", header = T)
+ibut$Date.Time = as.POSIXct(ibut$Date.Time, format = "%m/%d/%y %H:%M")
+ibut = ibut[-c(1:5),] # Delete first iButton data rows to match prism dataset
+# remove last row of prims data to match ibutton data
+prism = prism[-nrow(prism),]
+
+# calculate average daily temperature from ibutton data (measured every 4 hours)
+ibut$Day = strftime(ibut$Date.Time, format="%m/%d/%y")
+ibutMean = ibut %>% dplyr::group_by(Day) %>%
+  dplyr::summarize(mean_X1 = mean(Temp.C)) %>% as.data.frame()
+
+# Combine
+TempData = cbind.data.frame(ibutMean,prism[,2])
+colnames(TempData) = c("Date", "iButton", "PRISM")
+TempData$Date = as.POSIXct(TempData$Date, format = "%m/%d/%y")
+
+# Plot
+plot(TempData$iButton ~ TempData$Date, type = "l", ylim = c(5,36),
+     ylab = "Temperature (C)", xlab = "Day", main = "Mean Daily Temperature",
+     cex.axis = 1.5, lwd = 1.5)
+points(TempData$PRISM ~ TempData$Date, type = "l", col = "red", lwd = 1.5)
+legend("topleft", legend = c("iButton", "PRISM"), col = c("black", "red"), lty = 1, lwd = 4, cex = 1.5)
+mean(TempData$PRISM - TempData$iButton) # PRISM on average 0.7C cooler than ibutton
+
+cor.test(TempData$PRISM, TempData$iButton)
+
+
+### Repeat SB04 with daily maxima ###
+
+# calculate average daily max temperature from ibutton data (measured every 4 hours)
+ibutMax = ibut %>% dplyr::group_by(Day) %>%
+  dplyr::summarize(max_temp = max(Temp.C)) %>% as.data.frame()
+
+prism2= read.csv("PRISMdata_SB04_Max.csv", header = T)
+# remove last row of prims data to match ibutton data
+prism2 = prism2[-nrow(prism2),]
+
+# Combine
+TempData2 = cbind.data.frame(ibutMax,prism2[,2])
+colnames(TempData2) = c("Date", "iButton", "PRISM")
+TempData2$Date = as.POSIXct(TempData2$Date, format = "%m/%d/%y")
+
+# Plot
+plot(TempData2$iButton ~ TempData2$Date, type = "l", ylim = c(5,50),
+     ylab = "Temperature (C)", xlab = "Day", main = "Max Daily Temperature",
+     cex.axis = 1.5, lwd = 1.5)
+points(TempData2$PRISM ~ TempData2$Date, type = "l", col = "red", lwd = 1.5)
+legend("topleft", legend = c("iButton", "PRISM"), col = c("black", "red"), lty = 1, lwd = 4, cex = 1.5)
+mean(TempData2$PRISM - TempData2$iButton) # PRISM on average 5C higher than ibutton
+
+cor.test(TempData2$PRISM, TempData2$iButton)
+
+
+
+# Calculate mean daily max in spring and summer (3/19 - 9/23) 
+# to compare with PRISM data source
+mean(ibutMax$max_temp[30:218]) # 29.52 (same variable from PRISM was 27.86)
+
+# Calculate number of days where temperatures > 35
+which(ibutMax$max_temp > 35) # 45 days where temps > 35
+which(ibutMax$max_temp > 31.6) # 87 days where temps > 31.6
+
+
+
+
+
+
 
 ###### Correlation Plots. Manuscript figure 6 #####
 par(mar = c(4.5,4.5,2,1))
@@ -274,6 +441,53 @@ plot(dfPmax$mean ~ dfPmax$avgAnnualMean,
 abline(lm(dfPmax$mean ~ dfPmax$avgAnnualMean), col = "black", lwd= 2)
 text("r = 0.66", x = 12.2, y = 9.7, cex = 2)
 
+# PDR tmax and annual mean
+df3Tmax$Population = factor(df3Tmax$Population, levels = LatOrder)
+df3Tmax = df3Tmax[order(df3Tmax$Population),]
+plot(df3Tmax$mean ~ df3Tmax$avgAnnualMean, 
+     col = rev(LatColors),
+     pch =16, cex = 2.5, cex.lab = 2, cex.axis = 2, 
+     main = "Thermal maximum for pupal dev. rate", cex.main = 2,
+     xlab = "Annual mean temperature (\u00B0C)", ylab = "")
+abline(lm(df3Tmax$mean ~ df3Tmax$avgAnnualMean), col = "black", lwd= 2)
+text("r = 0.64", x = 12.2, y = 33.6, cex = 2)
+
+# PDR tmax and avg # days >35 C
+df3Tmax$Population = factor(df3Tmax$Population, levels = LatOrder)
+df3Tmax = df3Tmax[order(df3Tmax$Population),]
+plot(df3Tmax$mean ~ df3Tmax$avgNumDays, 
+     col = rev(LatColors),
+     pch =16, cex = 2.5, cex.lab = 2, cex.axis = 2, 
+     main = "Thermal maximum for pupal dev. rate", cex.main = 2,
+     xlab = "# days >35 \u00B0C", ylab = "")
+abline(lm(df3Tmax$mean ~ df3Tmax$avgNumDays), col = "black", lwd= 2)
+text("r = 0.70", x = 8, y = 33.6, cex = 2)
+
+# PDR tmax and avg # days >31.6C
+df3Tmax$Population = factor(df3Tmax$Population, levels = LatOrder)
+df3Tmax = df3Tmax[order(df3Tmax$Population),]
+plot(df3Tmax$mean ~ df3Tmax$days31.6, 
+     col = rev(LatColors),
+     pch =16, cex = 2.5, cex.lab = 2, cex.axis = 2, 
+     main = "Thermal maximum for pupal dev. rate", cex.main = 2,
+     xlab = "# days >31.6 \u00B0C", ylab = "")
+abline(lm(df3Tmax$mean ~ df3Tmax$days31.6), col = "black", lwd= 2)
+text("r = 0.47", x = 26, y = 33.6, cex = 2)
+
+
+
+
+# PDR tmax and warm season maximum
+df3Tmax$Population = factor(df3Tmax$Population, levels = LatOrder)
+df3Tmax = df3Tmax[order(df3Tmax$Population),]
+plot(df3Tmax$mean ~ df3Tmax$avgExtreme,
+     col = rev(LatColors),
+     pch =16, cex = 2.5, cex.lab = 2, cex.axis = 2, 
+     main = "Thermal maximum for pupal dev. rate", cex.main = 2,
+     xlab = "Warm season max (\u00B0C)", ylab = "")
+abline(lm(df3Tmax$mean ~ df3Tmax$avgExtreme), col = "black", lwd= 2)
+text("r = 0.68", x = 23.3, y = 33.6, cex = 2)
+
 # PDR topt and avg daily maximum in spring/summer
 df3Topt$Population = factor(df3Topt$Population, levels = LatOrder)
 df3Topt = df3Topt[order(df3Topt$Population),]
@@ -283,22 +497,51 @@ plot(df3Topt$mean ~ df3Tmax$avgExtreme,
      main = "Thermal optimum for pupal dev. rate", cex.main = 2,
      xlab = "Daily max in Spring/Summer (\u00B0C)", ylab = "")
 abline(lm(df3Topt$mean ~ df3Tmax$avgExtreme), col = "black", lwd= 2)
-text("r = 0.68", x = 23.3, y = 27.6, cex = 2)
+text("r = 0.71", x = 23.3, y = 27.6, cex = 2)
 
-# PDR tmax and avg # days >35 C
-df3Tmax$Population = factor(df3Tmax$Population, levels = LatOrder)
-df3Tmax = df3Tmax[order(df3Tmax$Population),]
-plot(df3Tmax$mean ~ df3Tmax$avgNumDays, 
-     col = rev(LatColors),
+
+# PDR topt and days >35C
+df3Topt$Population = factor(df3Topt$Population, levels = LatOrder)
+df3Topt = df3Topt[order(df3Topt$Population),]
+plot(df3Topt$mean ~ df3Tmax$days35, 
      pch =16, cex = 2.5, cex.lab = 2, cex.axis = 2, 
-     main = "Thermal maximum for pupal dev. rate", cex.main = 2,
-     xlab = "# days >35 (\u00B0C)", ylab = "")
-abline(lm(df3Tmax$mean ~ df3Tmax$avgNumDays), col = "black", lwd= 2)
-text("r = 0.70", x = 8, y = 33.6, cex = 2)
+     col = rev(LatColors), 
+     main = "Thermal optimum for pupal dev. rate", cex.main = 2,
+     xlab = "# days >35 \u00B0C", ylab = "")
+abline(lm(df3Topt$mean ~ df3Tmax$days35), col = "black", lwd= 2)
+text("r = 0.70", x = 8, y = 27.6, cex = 2)
 
 
 
 
+
+##### 1-D plot of days > 35c #####
+
+LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
+LatColorsP = c("#ab041b", "#ec3c30", "#f46d43", "#fdae61", "#fed439ff", "#7cae00", "#abd9e9", "#74add1", "#4575b4", "#313695")
+
+TempVars$Population = factor(TempVars$Population, levels = LatOrder)
+TempVars = TempVars[order(TempVars$Population),]
+x = TempVars$avgNumDays
+
+ggplot(data.frame(x), aes(x=x, y=0)) +
+  geom_point(size = 10)  +
+  annotate("segment",x=1,xend=50, y=0, yend=0, size=2) +
+  annotate("segment",x=1,xend=1, y=-0.1,yend=0.1, size=2) +
+  annotate("segment",x=50,xend=50, y=-0.1,yend=0.1, size=2) +
+  scale_x_continuous(limits = c(1,50)) +
+  scale_y_continuous(limits = c(-0.1,0.1)) +
+  theme(panel.background = element_blank())
+
+x = TempVars$days31.6
+ggplot(data.frame(x), aes(x=x, y=0)) +
+  geom_point(size = 10)  +
+  annotate("segment",x=1,xend=100, y=0, yend=0, size=2) +
+  annotate("segment",x=1,xend=1, y=-0.1,yend=0.1, size=2) +
+  annotate("segment",x=100,xend=100, y=-0.1,yend=0.1, size=2) +
+  scale_x_continuous(limits = c(1,100)) +
+  scale_y_continuous(limits = c(-0.1,0.1)) +
+  theme(panel.background = element_blank())
 
 ##### Additional analyses ####
 ##### Is there a climate/geographical gradient in body size? ######
@@ -362,10 +605,12 @@ lfdf = read.csv("~/Documents/Current_Projects/LifeHistoryTraitExp/Fitness_Breakd
 lfdf$Temp.Treatment = dplyr::recode(lfdf$Temp.Treatment, '32.18' = 32, '27.5' = 28, '23.75' = 24, '17.12' = 17, '13.35' = 13, '5.49' = 5) %>% 
 as.factor()
 lfdf$Population = dplyr::recode(lfdf$Population, "MARIN35" = 'MAR1', "MARIN29" = 'MAR2')
+lfdf$FitPerSurv = round(lfdf$FitPerSurv, 2)
 lfdf$PerIndFit = round(lfdf$PerIndFit, 2)
 lfdf$PerPosFit = round(lfdf$PerPosFit, 2)
 lfdf$EggCount[is.na(lfdf$EggCount)] <- 0
 lfdf$EggCount = round(lfdf$EggCount, 1)
+lfdf$FitPerSurv[is.na(lfdf$FitPerSurv)] <- 0
 
 LatOrder = rev(c("EUG", "HOP", "PLA", "MAR2", "MAR1", "JRA", "WAW", "PAR", "SB", "POW"))
 lfdf$Population = factor(lfdf$Population, levels = LatOrder)
@@ -374,19 +619,19 @@ ggplot(lfdf, aes(x = Temp.Treatment, y = Population, fill = PerIndFit)) +
   geom_tile(color = "black") +
   scale_fill_gradient(low = "white", high = "#DB4325") +
   coord_fixed() + 
-  geom_text(aes(label=PerIndFit), size = 4) + 
-  xlab("Temperature") + theme_minimal()
+  geom_text(aes(label=PerIndFit), size = 3) + 
+  xlab("Temperature (\u00B0C)") + theme_minimal()
 
 ggplot(lfdf, aes(x = Temp.Treatment, y = Population, fill = PerPosFit)) +
   geom_tile(color = "black") +
   scale_fill_gradient(low = "white", high = "#DB4325") +
   coord_fixed() + 
-  geom_text(aes(label=PerPosFit), size = 4) + 
-  xlab("Temperature") + theme_minimal()
+  geom_text(aes(label=PerPosFit), size = 3) + 
+  xlab("Temperature (\u00B0C)") + theme_minimal()
 
-ggplot(lfdf, aes(x = Temp.Treatment, y = Population, fill = EggCount)) +
+ggplot(lfdf, aes(x = Temp.Treatment, y = Population, fill = FitPerSurv)) +
   geom_tile(color = "black") +
   scale_fill_gradient(low = "white", high = "#DB4325") +
   coord_fixed() + 
-  geom_text(aes(label=EggCount), size = 4) + 
-  xlab("Temperature") + theme_minimal()
+  geom_text(aes(label=FitPerSurv), size = 3) + 
+  xlab("Temperature (\u00B0C)") + theme_minimal()
